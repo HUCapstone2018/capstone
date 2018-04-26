@@ -1,0 +1,134 @@
+{
+    "Site": {
+        "acl_plugin": "Acl",
+        "admin_theme": "AdminExtras",
+        "asset_timestamp": "force",
+        "email": "info@site.com",
+        "feed_url": "",
+        "home_url": "",
+        "ipWhitelist": "127.0.0.1",
+        "locale": "eng",
+        "status": 1,
+        "tagline": "",
+        "theme": "Custom",
+        "timezone": "Asia/Beirut",
+        "title": "Croogo",
+        "address": ""
+    },
+    "Croogo": {
+        "Api": {
+            "path": "api"
+        },
+        "dashboardUrl": {
+            "admin": true,
+            "plugin": "extensions",
+            "controller": "extensions_dashboard",
+            "action": "index"
+        },
+        "installed": 1,
+        "version": "2.3.2"
+    },
+    "Hook": {
+        "bootstraps": "Settings,Contacts,Nodes,Meta,Menus,Users,Blocks,Taxonomy,FileManager,Wysiwyg,Ckeditor,Imagine,Assets,Projects,Seo,Maps"
+    },
+    "Access Control": {
+        "autoLoginDuration": "+1 week",
+        "models": "",
+        "multiRole": 0,
+        "rowLevel": 0
+    },
+    "Comment": {
+        "date_time_format": "M d, Y",
+        "email_notification": 1,
+        "feed_limit": 10,
+        "level": 1
+    },
+    "Meta": {
+        "description": "Croogo - A CakePHP powered Content Management System",
+        "generator": "Croogo - Content Management System",
+        "keywords": "croogo, Croogo",
+        "robots": "index, follow"
+    },
+    "Reading": {
+        "date_time_format": "D, M d Y H:i:s",
+        "nodes_per_page": 5
+    },
+    "Service": {
+        "akismet_key": "your-key",
+        "akismet_url": "http://your-blog.com",
+        "recaptcha_private_key": "your-private-key",
+        "recaptcha_public_key": "your-public-key"
+    },
+    "Writing": {
+        "wysiwyg": 1
+    },
+    "Assets": {
+        "installed": 1
+    },
+    "Social": {
+        "facebook": "",
+        "twitter": "",
+        "instagram": "",
+        "youtube": ""
+    },
+    "Projects": {
+        "clients": 0,
+        "icon": "briefcase",
+        "model_name": "Product"
+    },
+    "ProjectsPlugin": {
+        "remove_settings_on_deactivate": "YES",
+        "version": 1.3
+    },
+    "Seo": {
+        "remove_settings_on_deactivate": "NO",
+        "changefreq": "weekly",
+        "priority": 0.8,
+        "organize_by_vocabulary": 1,
+        "homepage_title": "",
+        "homepage_description": "",
+        "show_per_page_stats": 0,
+        "hook_google": 0,
+        "hook_twitter": 0,
+        "hook_facebook": 0,
+        "alexa_verification_key": "",
+        "bing_webmaster_tools_key": "",
+        "google_adwords_tracking_for_messages": "",
+        "google_webmaster_tools_key": "",
+        "google_analytics_ua": "UA-1-XXXXXXXXX",
+        "google_analytics_domain": "your-site.com",
+        "google_places_cid": "",
+        "google_plus_cid": "",
+        "google_tag_manager": "XXXX-XXXX",
+        "meta_robots_default": "INDEX, FOLLOW",
+        "insert_meta_description": 1,
+        "insert_meta_robots": 1,
+        "insert_meta_keywords": 1,
+        "turn_off_promote_by_default": 1,
+        "add_rss_ga_campaign_tags": 1,
+        "rss_ga_medium": "rssfeed",
+        "rss_ga_campaign_name": "RSSFeed",
+        "rss_before": "",
+        "rss_after": "",
+        "add_copy_link": 1,
+        "add_copy_link_ga_campaign_tags": 1,
+        "copy_link_ga_medium": "copylink",
+        "copy_link_ga_campaign_name": "CutNPaste",
+        "copy_link_text": "Read more at: {{current_page}} Copyright &copy; {{site_title}}",
+        "facebook_link": "",
+        "facebook_app_key": "",
+        "facebook_app_secret": "",
+        "twitter_username": "",
+        "twitter_consumer_key": "",
+        "twitter_consumer_secret": "",
+        "twitter_access_token": "",
+        "twitter_access_token_secret": "",
+        "adwords_conversion_key_contact": "",
+        "adwords_conversion_language_contact": "",
+        "adwords_conversion_format_contact": "",
+        "adwords_conversion_color_contact": "",
+        "adwords_conversion_label_contact": "",
+        "adwords_conversion_value_contact": "",
+        "version": 1
+    }
+}

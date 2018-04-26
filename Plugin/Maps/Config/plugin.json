@@ -1,0 +1,15 @@
+{
+	"name": "Map Plugin",
+	"description": "Google Map plugin for croogo websites.",
+
+	"author": "Avo Sarafian",
+	"authorEmail": "me@avosarafian.com",
+	"authorUrl": "http://avosarafian.com",
+
+	"dependencies": {
+		"plugins": [
+			"acl",
+			"extensions"
+			]
+		}
+}

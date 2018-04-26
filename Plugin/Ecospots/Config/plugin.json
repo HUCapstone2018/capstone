@@ -1,0 +1,15 @@
+{
+	"name": "Ecospots",
+	"description": "EcoSpots Plugin provides plant animal and event functionality",
+
+	"author": "Ayman Hamdoun",
+	"authorEmail": "aymanhamdoun@outlook.com",
+	"authorUrl": "",
+
+	"dependencies": {
+		"plugins": [
+			"acl",
+			"extensions"
+		]
+	}
+}

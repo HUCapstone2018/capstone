@@ -1,0 +1,18 @@
+{
+  "name" : "EcoSpots Theme",
+  "description" : "EcoSpots Theme for this Website",
+  "screenshot" : "screenshot.png",
+
+  "author" : "Ayman & Yasmine",
+  "authorEmail" : "aymanhamdoun@outlook.com",
+  "authorUrl" : "",
+
+  "menus" : [
+  	"main",
+  	"footer"
+  ],
+
+  "regions" : [
+    
+  ]
+}

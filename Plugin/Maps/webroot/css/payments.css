@@ -1,0 +1,138 @@
+#donate-form .full {
+	width: 95%;
+}
+#donate-form .half {
+	width: 47%;
+}
+	#donate-form .field_row .half + .half{
+		margin-left: 10px;
+	}
+#donate-form .email {
+	margin: 0;
+}
+#payment_details, .payment_provider_details {
+	display: inline-block;
+	width: 48%;
+	padding: 0 20px;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+.payment_provider_details {
+	position: relative;
+}
+.payment_provider_details .back_btsn{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 120%;
+}
+#payment_details fieldset {
+    margin-bottom: 20px;
+}
+#payment_details fieldset strong {
+	width: 250px;
+	display: inline-block;
+	line-height: 30px;
+} 
+#payment_details fieldset span {
+	display: inline-block;
+	line-height: 30px;
+} 
+
+#amount_other {
+	display: none;
+}
+.input.text .validation {
+    border-color: rgb(200, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+}
+#payment_result {
+    float: left;
+    width: 50%;
+    padding-bottom: 40px;
+}
+#result_table, #confirm_table {
+	width: 100%;
+	border: 0;
+}
+	#result_table tr:nth-child(odd),
+	#confirm_table tr:nth-child(odd){
+		background: #ffffff;
+	}
+	#result_table tr:nth-child(even),
+	#confirm_table tr:nth-child(even){
+		background: #cccccc;
+	}
+
+#result_table tr > td, #confirm_table tr > td {
+	width: 50%;
+	padding: 10px;
+	text-align: left;
+	color: #000000;
+	border: none;
+}
+#result_table strong {
+	display: inline-block;
+	width: 250px;
+}
+.Successful, .Failed {
+	font-weight: bold;
+}
+.Successful {
+	color: #468847;
+}
+.Failed {
+	color: #b94a48;
+}
+
+.payment_provider_details {
+    float: right;
+    padding-left: 20px;
+    width: 50%;
+}
+
+#authMessage .error, div .error, .error {
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
+    border-radius: 4px;
+    color: #b94a48;
+    margin-bottom: 20px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+
+@media screen and (max-width: 1017px) {
+	#donation-holder, #volunteer-holder,
+	#donation-holder > .block-body {
+	    width: 100%;
+	}
+	#donate-form .input.half,
+	#donate-form .full {
+	    margin: 0 0 15px;
+	    width: 100%;
+	}
+	#donate-form .field_row .half + .half {
+	    margin-left: 0;
+	}
+	#payment_result,
+	.payment_provider_details {
+		float: none;
+		width: 100%;
+		margin: 0 auto;
+		padding: 20px;
+	}
+}
+@media screen and (max-width: 551px) {
+	.input.radio fieldset {
+	    width: 100%;
+	}
+	.input.radio label {
+		width: 70%;
+		max-width: 300px;
+	}
+	#donation-title {
+		max-width: 100%;
+	}
+}
