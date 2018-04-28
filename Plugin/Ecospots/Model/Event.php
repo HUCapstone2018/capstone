@@ -57,6 +57,7 @@ class Event extends AppModel {
     protected $_editFields = array(
         'id',
         'name',
+        'excerpt',
         'description',
         'date'
     );

@@ -31,8 +31,22 @@ class SpotsController extends AppController {
  * @access public
  */
 	public $uses = array('Ecospots.Spot','Ecospots.Plant','Ecospots.Animal','Ecospots.Activity','Maps.Map');
+
+	public $helpers = array('Eco','Paginator'=>['className'=>'CroogoPaginator']);
 	
 	public $issortable = true;
+
+	public $components = array(
+		'Search.Prg' => array(
+			'presetForm' => array(
+				'paramType' => 'querystring',
+			),
+			'commonProcess' => array(
+				'paramType' => 'querystring',
+				'filterEmpty' => true,
+			),
+		),
+	);
 
 /**
  * Admin index
@@ -74,10 +88,10 @@ class SpotsController extends AppController {
 			}
 		}
 		$editFields = $this->Spot->editFields();
-		$editFields['spot_id']['options'] = $this->Spot->find('list',[
-			'fields' => ['id','name']
-		]);
-		$editFields['spot_id']['empty'] = true;
+		// $editFields['spot_id']['options'] = $this->Spot->find('list',[
+		// 	'fields' => ['id','name']
+		// ]);
+		// $editFields['spot_id']['empty'] = true;
 		$this->set('editFields', $editFields);
 	}
 
@@ -93,10 +107,10 @@ class SpotsController extends AppController {
 		$this->Spot->recursive = 2;
 
 		$editFields = $this->Spot->editFields();
-		$editFields['spot_id']['options'] = $this->Spot->find('list',[
-			'fields' => ['id','name']
-		]);
-		$editFields['spot_id']['empty'] = true;
+		// $editFields['spot_id']['options'] = $this->Spot->find('list',[
+		// 	'fields' => ['id','name']
+		// ]);
+		// $editFields['spot_id']['empty'] = true;
 		// debug($editFields['spot_id']);exit;
 		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Invalid Spot'), 'default', array('class' => 'error'));
@@ -150,32 +164,55 @@ class SpotsController extends AppController {
 	public function index()
 	{
 		$this->set('title_for_layout', __('Spots Index'));
-		$searchActivity = "Sky Diving";
+		if(isset($this->request->params['named']['activity']))
+		{
+			$slug = $this->request->params['named']['activity'];
+			
+			$this->paginate['conditions'] = [
+				'Activity.slug' => $slug
+			];
 
-		$this->Spot->recursive = -1;
-		$options['joins'] = array(
-		    array('table' => 'activities_spots',
-		        'alias' => 'ActivitiesSpot',
-		        'type' => 'inner',
-		        'conditions' => array(
-		            'Spot.id = ActivitiesSpot.spot_id'
-		        )
-		    ),
-		    array('table' => 'activities',
-		        'alias' => 'Activity',
-		        'type' => 'inner',
-		        'conditions' => array(
-		            'ActivitiesSpot.activity_id = Activity.id'
-		        )
-		    )
-		);
+			$this->paginate['joins'] = array(
+			    array(
+			    	'table' => 'activities_spots',
+			        'alias' => 'ActivitiesSpot',
+			        'type' => 'inner',
+			        'conditions' => '`Spot`.`id` = `ActivitiesSpot`.`spot_id`'
+			    ),
+			    array(
+			    	'table' => 'activities',
+			        'alias' => 'Activity',
+			        'type' => 'inner',
+			        'conditions' => '`ActivitiesSpot`.`activity_id` = `Activity`.`id`'
+			    )
+			);
+		}
 
-		$options['conditions'] = array(
-		    'Activity.name' => $searchActivity
-		);
+		if(isset($this->request->params['named']['name']))
+		{
+			$name = $this->request->params['named']['name'];
+			$this->paginate['conditions'] = [
+				'Spot.name LIKE' => '%'.$name.'%'
+			];
+		}
 
-		$spots = $this->Spot->find('all', $options);
-		debug($spots);
+		if(isset($this->request->params['named']['natural-reserve']) && $this->request->params['named']['natural-reserve'] == 'yes')
+		{
+			$this->paginate['conditions'] = [
+				'Spot.reserve' => 1
+			];
+		}
+
+		$this->paginate['limit'] = 9;
+		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
+
+		$spots = $this->paginate('Spot');
+
+
+		$this->Activity->recursive = 0;
+		$modal = $this->Activity->find('all');
+
+		$this->set(compact('spots','modal'));
 	}
 
 	public function view($slug, $lang = 'en')

@@ -1,27 +1,21 @@
-<section class="theme_menu stricky">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="main-logo">
-                    <a href="<?php echo $this->webroot?>">
-                        <?php
-                            //echo $this->HTML->image('logo/logo.png');
-                        ?>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-9 menu-column">
-                <nav class="menuzord" id="main_menu">
-                    <?php 
-                        echo $this->Menus->menu('main',[
-                            'dropdown' => true,
-                            'dropdownMenuClass' => 'dropdown',
-                            'menuClass' => 'menuzord-menu'
-                        ]);
-                    ?>
-                </nav> 
-            </div>
+<nav id="navbar" class="theme_menu stricky">
+    <div class="container-fluid row">
 
+        <div class="navbar-header navbar-left">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="<?php echo $this->webroot?>">
+                <?php
+                    //echo $this->HTML->image('logo/logo.png');
+                ?>
+            </a>       
         </div>
-   </div>
-</section>
+        <div class="collapse navbar-collapse navbar-right menuzord" id="mainNavbar">
+            <?php echo $this->Menus->menu('main', array('dropdown' => true)); ?>
+        </div>
+
+    </div>
+</nav>

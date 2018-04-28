@@ -39,6 +39,24 @@ CroogoRouter::connect('/blog/:slug', array(
 	'action' => 'view'
 ));
 
+CroogoRouter::connect('/events', array(
+	'plugin' => 'ecospots',
+	'controller' => 'events',
+	'action' => 'index'
+));
+
+CroogoRouter::connect('/event/:slug', array(
+	'plugin' => 'ecospots',
+	'controller' => 'events',
+	'action' => 'view'
+));
+
+CroogoRouter::connect('/spots', array(
+	'plugin' => 'ecospots',
+	'controller' => 'spots',
+	'action' => 'index'
+));
+
 CroogoRouter::routes();
 Router::parseExtensions();
 Router::setExtensions(array('json', 'rss'));

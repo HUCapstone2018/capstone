@@ -61,15 +61,18 @@ class Spot extends AppModel {
     protected $_displayFields = array(
         'photo',
         'name',
+        'reserve' => ['label' => 'is a Natural Reserve'],
         'created'
     );
 
     protected $_editFields = array(
         'id',
-        'spot_id' => ['label' => 'Parent'],
+        //'spot_id' => ['label' => 'Parent'],
         'name',
+        'excerpt',
         'description',
-        'photo'
+        'photo',
+        'reserve' => ['label' => 'is a Natural Reserve']
     );
 
 }

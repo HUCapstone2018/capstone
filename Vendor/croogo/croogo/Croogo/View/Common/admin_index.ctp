@@ -162,7 +162,8 @@ if (!$tableBody && isset($displayFields)):
                     strpos($key, "status") !== false ||
                     strpos($key, "promoted") !== false ||
                     strpos($key, "danger") !== false ||
-                    strpos($key, "recommended") !== false
+                    strpos($key, "recommended") !== false ||
+                    strpos($key, "reserve") !== false
                 ){
                     $row[] = $this->element('admin/toggle', array(
                         'id' => $item[$model]['id'],

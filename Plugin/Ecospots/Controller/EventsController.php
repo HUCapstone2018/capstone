@@ -32,6 +32,7 @@ class EventsController extends AppController {
  */
 	public $uses = array('Ecospots.Event','Ecospots.Spot');
 	
+	public $helpers = array('Eco','Paginator'=>['className'=>'CroogoPaginator']);
 
 
 /**
@@ -137,16 +138,27 @@ class EventsController extends AppController {
 	}
 
 
-	public function view($slug, $lang = 'en')
+	public function index($lang = 'en')
 	{
 		$this->set('title_for_layout', __('View Event'));
-		if(empty($slug))
+
+		$this->paginate['Event']['limit'] = 1;
+		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
+		$events = $this->paginate('Event');
+		
+		$this->set(compact('events','lang'));
+	}
+
+	public function view($lang = 'en')
+	{
+		$this->set('title_for_layout', __('View Event'));
+		if(!$this->request->params['slug'])
 		{
 			$this->Session->setFlash(__('Invalid Event'), 'default', array('class' => 'error'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->Event->recursive = 2;
-		$event = $this->Event->findBySlug($slug);
+		$event = $this->Event->findBySlug($this->request->params['slug']);
 		
 		$this->set(compact('event','lang'));
 	}

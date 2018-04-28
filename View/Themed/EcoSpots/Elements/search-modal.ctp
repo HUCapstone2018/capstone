@@ -47,7 +47,7 @@
                             'plugin' => $plugin,
                             'controller' => $controller,
                             'action' => $action,
-                            'search' => $row[$modal_data['Modal'][$search]]['slug']
+                            'activity' => $row[$modal_data['Modal'][$search]]['slug']
                         ])?>">
                         <h4><?=$row[$modal_data['Modal'][$search]][$arabic_prefix.'name']?></h4>
                     </a>

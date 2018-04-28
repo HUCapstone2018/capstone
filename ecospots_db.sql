@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 06:40 PM
+-- Generation Time: Apr 28, 2018 at 03:28 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -43,7 +43,7 @@ CREATE TABLE `acos` (
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, '', NULL, 'controllers', 1, 778),
+(1, NULL, '', NULL, 'controllers', 1, 780),
 (2, 1, '', NULL, 'Acl', 2, 25),
 (3, 2, '', NULL, 'AclActions', 3, 16),
 (4, 3, '', NULL, 'admin_index', 4, 5),
@@ -305,14 +305,14 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (384, 114, NULL, NULL, 'admin_hierarchy', 278, 279),
 (385, 114, NULL, NULL, 'admin_moveup', 280, 281),
 (386, 114, NULL, NULL, 'admin_movedown', 282, 283),
-(387, NULL, NULL, NULL, 'api', 779, 794),
-(388, 387, NULL, NULL, 'v1_0', 780, 793),
-(389, 388, NULL, NULL, 'Nodes', 781, 786),
-(390, 389, NULL, NULL, 'Nodes', 782, 785),
-(391, 390, NULL, NULL, 'lookup', 783, 784),
-(395, 388, NULL, NULL, 'Users', 787, 792),
-(396, 395, NULL, NULL, 'Users', 788, 791),
-(397, 396, NULL, NULL, 'lookup', 789, 790),
+(387, NULL, NULL, NULL, 'api', 781, 796),
+(388, 387, NULL, NULL, 'v1_0', 782, 795),
+(389, 388, NULL, NULL, 'Nodes', 783, 788),
+(390, 389, NULL, NULL, 'Nodes', 784, 787),
+(391, 390, NULL, NULL, 'lookup', 785, 786),
+(395, 388, NULL, NULL, 'Users', 789, 794),
+(396, 395, NULL, NULL, 'Users', 790, 793),
+(397, 396, NULL, NULL, 'lookup', 791, 792),
 (398, 1, NULL, NULL, 'Wysiwyg', 524, 525),
 (399, 1, NULL, NULL, 'Maps', 526, 555),
 (400, 399, NULL, NULL, 'Maps', 527, 540),
@@ -370,7 +370,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (568, 567, NULL, NULL, 'admin_index', 630, 631),
 (569, 567, NULL, NULL, 'admin_edit', 632, 633),
 (570, 567, NULL, NULL, 'admin_delete', 634, 635),
-(571, 1, NULL, NULL, 'Ecospots', 638, 777),
+(571, 1, NULL, NULL, 'Ecospots', 638, 779),
 (572, 571, NULL, NULL, 'Animals', 639, 652),
 (573, 572, NULL, NULL, 'admin_index', 640, 641),
 (574, 572, NULL, NULL, 'admin_add', 642, 643),
@@ -401,45 +401,46 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (599, 571, NULL, NULL, 'Activities', 693, 706),
 (600, 599, NULL, NULL, 'admin_index', 694, 695),
 (601, 599, NULL, NULL, 'admin_add', 696, 697),
-(602, 571, NULL, NULL, 'Events', 707, 724),
+(602, 571, NULL, NULL, 'Events', 707, 726),
 (603, 602, NULL, NULL, 'admin_index', 708, 709),
 (604, 602, NULL, NULL, 'admin_add', 710, 711),
 (605, 599, NULL, NULL, 'admin_edit', 698, 699),
 (606, 599, NULL, NULL, 'admin_delete', 700, 701),
 (607, 599, NULL, NULL, 'admin_moveup', 702, 703),
 (608, 599, NULL, NULL, 'admin_movedown', 704, 705),
-(609, 571, NULL, NULL, 'Blogs', 725, 742),
-(610, 609, NULL, NULL, 'admin_index', 726, 727),
-(611, 609, NULL, NULL, 'admin_add', 728, 729),
-(612, 609, NULL, NULL, 'admin_edit', 730, 731),
-(613, 609, NULL, NULL, 'admin_delete', 732, 733),
-(614, 609, NULL, NULL, 'admin_moveup', 734, 735),
-(615, 609, NULL, NULL, 'admin_movedown', 736, 737),
-(616, 609, NULL, NULL, 'index', 738, 739),
-(617, 609, NULL, NULL, 'view', 740, 741),
+(609, 571, NULL, NULL, 'Blogs', 727, 744),
+(610, 609, NULL, NULL, 'admin_index', 728, 729),
+(611, 609, NULL, NULL, 'admin_add', 730, 731),
+(612, 609, NULL, NULL, 'admin_edit', 732, 733),
+(613, 609, NULL, NULL, 'admin_delete', 734, 735),
+(614, 609, NULL, NULL, 'admin_moveup', 736, 737),
+(615, 609, NULL, NULL, 'admin_movedown', 738, 739),
+(616, 609, NULL, NULL, 'index', 740, 741),
+(617, 609, NULL, NULL, 'view', 742, 743),
 (618, 602, NULL, NULL, 'admin_edit', 712, 713),
 (619, 602, NULL, NULL, 'admin_delete', 714, 715),
 (620, 602, NULL, NULL, 'view', 716, 717),
 (621, 602, NULL, NULL, 'admin_moveup', 718, 719),
 (622, 602, NULL, NULL, 'admin_movedown', 720, 721),
-(623, 571, NULL, NULL, 'Reviews', 743, 758),
-(624, 623, NULL, NULL, 'admin_index', 744, 745),
-(625, 623, NULL, NULL, 'admin_add', 746, 747),
-(626, 623, NULL, NULL, 'admin_edit', 748, 749),
-(627, 623, NULL, NULL, 'admin_delete', 750, 751),
-(628, 623, NULL, NULL, 'view', 752, 753),
-(629, 623, NULL, NULL, 'admin_moveup', 754, 755),
-(630, 623, NULL, NULL, 'admin_movedown', 756, 757),
-(631, 571, NULL, NULL, 'Topics', 759, 776),
-(632, 631, NULL, NULL, 'admin_index', 760, 761),
-(633, 631, NULL, NULL, 'admin_add', 762, 763),
-(634, 631, NULL, NULL, 'admin_edit', 764, 765),
-(635, 631, NULL, NULL, 'admin_delete', 766, 767),
-(636, 631, NULL, NULL, 'admin_moveup', 768, 769),
-(637, 631, NULL, NULL, 'admin_movedown', 770, 771),
-(638, 631, NULL, NULL, 'index', 772, 773),
-(639, 631, NULL, NULL, 'view', 774, 775),
-(640, 602, NULL, NULL, 'footerEvents', 722, 723);
+(623, 571, NULL, NULL, 'Reviews', 745, 760),
+(624, 623, NULL, NULL, 'admin_index', 746, 747),
+(625, 623, NULL, NULL, 'admin_add', 748, 749),
+(626, 623, NULL, NULL, 'admin_edit', 750, 751),
+(627, 623, NULL, NULL, 'admin_delete', 752, 753),
+(628, 623, NULL, NULL, 'view', 754, 755),
+(629, 623, NULL, NULL, 'admin_moveup', 756, 757),
+(630, 623, NULL, NULL, 'admin_movedown', 758, 759),
+(631, 571, NULL, NULL, 'Topics', 761, 778),
+(632, 631, NULL, NULL, 'admin_index', 762, 763),
+(633, 631, NULL, NULL, 'admin_add', 764, 765),
+(634, 631, NULL, NULL, 'admin_edit', 766, 767),
+(635, 631, NULL, NULL, 'admin_delete', 768, 769),
+(636, 631, NULL, NULL, 'admin_moveup', 770, 771),
+(637, 631, NULL, NULL, 'admin_movedown', 772, 773),
+(638, 631, NULL, NULL, 'index', 774, 775),
+(639, 631, NULL, NULL, 'view', 776, 777),
+(640, 602, NULL, NULL, 'footerEvents', 722, 723),
+(641, 602, NULL, NULL, 'index', 724, 725);
 
 -- --------------------------------------------------------
 
@@ -462,7 +463,8 @@ CREATE TABLE `activities` (
 --
 
 INSERT INTO `activities` (`id`, `name`, `ar_name`, `slug`, `weight`, `updated`, `created`) VALUES
-(1, 'Sky Diving', 'لرعهخ', '', NULL, '2018-04-08 17:42:31', '2018-04-08 17:42:31');
+(3, 'Sky Diving', '', 'sky-diving', NULL, '2018-04-28 13:13:30', '2018-04-28 13:13:30'),
+(2, 'Scuba Diving', '', 'scuba-diving', NULL, '2018-04-28 12:58:38', '2018-04-28 12:58:38');
 
 -- --------------------------------------------------------
 
@@ -481,8 +483,8 @@ CREATE TABLE `activities_spots` (
 --
 
 INSERT INTO `activities_spots` (`id`, `activity_id`, `spot_id`) VALUES
-(3, 1, 1),
-(4, 1, 2);
+(8, 2, 1),
+(7, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -528,7 +530,7 @@ CREATE TABLE `animals_spots` (
 --
 
 INSERT INTO `animals_spots` (`id`, `animal_id`, `spot_id`) VALUES
-(3, 1, 1);
+(5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -656,7 +658,19 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 (301, 1, 603, '1', '1', '1', '1'),
 (302, 1, 604, '1', '1', '1', '1'),
 (303, 2, 640, '1', '1', '1', '1'),
-(304, 3, 640, '1', '1', '1', '1');
+(304, 3, 640, '1', '1', '1', '1'),
+(305, 2, 620, '1', '1', '1', '1'),
+(306, 3, 620, '1', '1', '1', '1'),
+(307, 2, 641, '1', '1', '1', '1'),
+(308, 3, 641, '1', '1', '1', '1'),
+(309, 2, 616, '1', '1', '1', '1'),
+(310, 2, 617, '1', '1', '1', '1'),
+(311, 3, 616, '1', '1', '1', '1'),
+(312, 3, 617, '1', '1', '1', '1'),
+(313, 1, 610, '1', '1', '1', '1'),
+(314, 1, 611, '1', '1', '1', '1'),
+(315, 1, 632, '1', '1', '1', '1'),
+(316, 1, 633, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -787,8 +801,11 @@ CREATE TABLE `blocks` (
 INSERT INTO `blocks` (`id`, `region_id`, `title`, `alias`, `body`, `show_title`, `class`, `status`, `weight`, `element`, `visibility_roles`, `visibility_paths`, `visibility_php`, `params`, `publish_start`, `publish_end`, `updated`, `updated_by`, `created`, `created_by`) VALUES
 (13, 7, 'Header', 'header', '', 0, '', 1, 1, 'header', '', '', NULL, '', NULL, NULL, '2018-04-22 12:33:04', 1, '2017-12-12 22:24:56', 1),
 (14, 8, 'Footer', 'footer', '', 0, '', 1, 2, 'footer', '', '', NULL, '', NULL, NULL, '2018-04-22 12:33:11', 1, '2017-12-12 23:24:14', 1),
-(18, 19, 'Blog Index', 'blog-index', '', 0, '', 1, 3, 'blog-index', '', '[\"plugin:ecospots/controller:blogs/action:index\"]', NULL, '', NULL, NULL, '2018-04-22 12:32:45', 1, '2017-12-14 14:05:55', 1),
-(20, 19, 'Blog view', 'blog-view', '', 0, '', 1, 4, 'blog-view', '', '[\"plugin:ecospots/controller:blogs/action:view\"]', NULL, '', NULL, NULL, '2018-04-22 12:32:32', 1, '2018-04-19 16:06:58', 1);
+(18, 19, 'Blog Index', 'blog-index', '', 0, '', 1, 3, 'blog-index', '', '[\"/blogs\"]', NULL, '', NULL, NULL, '2018-04-28 10:58:18', 1, '2017-12-14 14:05:55', 1),
+(20, 19, 'Blog view', 'blog-view', '', 0, '', 1, 4, 'blog-view', '', '[\"plugin:ecospots/controller:blogs/action:view\"]', NULL, '', NULL, NULL, '2018-04-28 12:01:30', 1, '2018-04-19 16:06:58', 1),
+(21, 19, 'Event Index', 'event-index', '', 0, '', 1, 5, 'event-index', '', '[\"plugin:ecospots/controller:events/action:index\"]', NULL, '', NULL, NULL, '2018-04-28 12:23:18', 1, '2018-04-28 10:58:06', 1),
+(22, 19, 'Event View', 'event-view', '', 0, '', 1, 6, 'event-view', '', '[\"plugin:ecospots/controller:events/action:view\"]', NULL, '', NULL, NULL, '2018-04-28 12:01:43', 1, '2018-04-28 11:48:12', 1),
+(23, 19, 'Spot Index', 'spot-index', '', 0, '', 1, 7, 'spot-index', '', '[\"plugin:ecospots/controller:spots/action:index\"]', NULL, '', NULL, NULL, '2018-04-28 12:22:38', 1, '2018-04-28 12:11:16', 1);
 
 -- --------------------------------------------------------
 
@@ -951,12 +968,14 @@ CREATE TABLE `events` (
   `ar_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `excerpt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `ar_excerpt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `ar_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `date` datetime DEFAULT NULL,
   `weight` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `spot_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   `created` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -965,9 +984,8 @@ CREATE TABLE `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `name`, `ar_name`, `slug`, `photo`, `description`, `ar_description`, `weight`, `user_id`, `spot_id`, `date`, `updated`, `created`) VALUES
-(4, 'Food Festival', '', 'food-festival', NULL, '<p>eat till your drop</p>\r\n', '', NULL, 1, 2, '2018-04-21 16:30:00', '2018-04-15 17:43:04', '2018-04-15 17:43:04'),
-(5, 'Marathon', '', 'marathon', NULL, '<p>jhgjkh</p>\r\n', '', NULL, 1, 1, '2018-04-29 17:22:00', '2018-04-26 17:22:58', '2018-04-26 17:22:58');
+INSERT INTO `events` (`id`, `name`, `ar_name`, `slug`, `photo`, `excerpt`, `ar_excerpt`, `description`, `ar_description`, `date`, `weight`, `user_id`, `spot_id`, `updated`, `created`) VALUES
+(1, 'Marathon', '', 'marathon', NULL, 'edwerdfwerfw3fwerdfe3d4d', '', '<p>d32df2dfr4f</p>\r\n', '', '2018-04-28 11:40:00', NULL, 1, 1, '2018-04-28 11:40:31', '2018-04-28 11:40:31');
 
 -- --------------------------------------------------------
 
@@ -1086,8 +1104,8 @@ INSERT INTO `links` (`id`, `parent_id`, `menu_id`, `title`, `class`, `descriptio
 (16, NULL, 5, 'Entries (RSS)', 'entries-rss', '', '/promoted.rss', '', '', 1, 3, 4, '', '', NULL, NULL, '2009-10-27 17:46:22', NULL, '2009-10-27 17:46:22', NULL),
 (17, NULL, 5, 'Comments (RSS)', 'comments-rss', '', '/comments.rss', '', '', 1, 5, 6, '', '', NULL, NULL, '2009-10-27 17:46:54', NULL, '2009-10-27 17:46:54', NULL),
 (19, NULL, 3, 'Blog', 'blog', '', '/blogs', '', '', 1, 11, 12, '', '', NULL, NULL, '2018-04-23 07:49:52', 1, '2018-04-19 15:23:37', 1),
-(20, NULL, 3, 'Spots', 'spots', '', '#', '', '', 1, 7, 8, '', '', NULL, NULL, '2018-04-20 13:30:56', 1, '2018-04-20 13:30:56', 1),
-(21, NULL, 3, 'Events', 'events', '', '#', '', '', 1, 9, 10, '', '', NULL, NULL, '2018-04-20 13:31:27', 1, '2018-04-20 13:31:27', 1);
+(20, NULL, 3, 'Spots', 'spots', '', '/spots', '', '', 1, 7, 8, '', '', NULL, NULL, '2018-04-28 12:12:20', 1, '2018-04-20 13:30:56', 1),
+(21, NULL, 3, 'Events', 'events', '', '/events', '', '', 1, 9, 10, '', '', NULL, NULL, '2018-04-28 10:58:56', 1, '2018-04-20 13:31:27', 1);
 
 -- --------------------------------------------------------
 
@@ -1385,7 +1403,7 @@ CREATE TABLE `plants_spots` (
 --
 
 INSERT INTO `plants_spots` (`id`, `plant_id`, `spot_id`) VALUES
-(3, 1, 1);
+(5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1424,7 +1442,7 @@ INSERT INTO `regions` (`id`, `title`, `alias`, `description`, `block_count`, `cr
 (15, 'region7', 'region7', '', 0, '2017-10-29 06:55:19', NULL, '2017-10-29 06:55:19', NULL),
 (16, 'region8', 'region8', '', 0, '2017-10-29 06:55:19', NULL, '2017-10-29 06:55:19', NULL),
 (17, 'region9', 'region9', '', 0, '2017-10-29 06:55:19', NULL, '2017-10-29 06:55:19', NULL),
-(19, 'inside', 'inside', NULL, 2, '2017-12-14 14:00:53', 1, '2017-12-14 14:17:03', 1);
+(19, 'inside', 'inside', NULL, 5, '2017-12-14 14:00:53', 1, '2017-12-14 14:17:03', 1);
 
 -- --------------------------------------------------------
 
@@ -1711,9 +1729,11 @@ CREATE TABLE `spots` (
   `ar_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `excerpt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `ar_excerpt` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `ar_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `protected` tinyint(1) NOT NULL DEFAULT '0',
+  `reserve` tinyint(1) NOT NULL DEFAULT '0',
   `weight` int(11) DEFAULT NULL,
   `map_id` int(11) DEFAULT NULL,
   `spot_id` int(11) DEFAULT NULL,
@@ -1725,9 +1745,9 @@ CREATE TABLE `spots` (
 -- Dumping data for table `spots`
 --
 
-INSERT INTO `spots` (`id`, `name`, `ar_name`, `slug`, `photo`, `description`, `ar_description`, `protected`, `weight`, `map_id`, `spot_id`, `updated`, `created`) VALUES
-(1, 'Azgard', 'لاهخ', 'azgard', '', '<p>hello mello my name is jello</p>\r\n', '', 0, 1, 1, NULL, '2018-04-18 20:01:29', '2018-04-08 17:43:00'),
-(2, 'Skyrim', '', 'skyrim', '', '<p>North of tamriel</p>\r\n', '', 0, 2, 2, 1, '2018-04-19 11:31:12', '2018-04-15 15:56:35');
+INSERT INTO `spots` (`id`, `name`, `ar_name`, `slug`, `photo`, `excerpt`, `ar_excerpt`, `description`, `ar_description`, `reserve`, `weight`, `map_id`, `spot_id`, `updated`, `created`) VALUES
+(1, 'aq', '', 'aq', '', 'ededed', '', '<p>edededededededededed</p>\r\n', '', 0, 1, NULL, NULL, '2018-04-28 13:15:01', '2018-04-28 12:58:02'),
+(2, 's2', '', 's2', '', 'dededede', '', '<p>dedededededede</p>\r\n', '', 1, 2, NULL, NULL, '2018-04-28 13:14:54', '2018-04-28 12:58:14');
 
 -- --------------------------------------------------------
 
@@ -2235,17 +2255,17 @@ ALTER TABLE `vocabularies`
 -- AUTO_INCREMENT for table `acos`
 --
 ALTER TABLE `acos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=641;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=642;
 --
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `activities_spots`
 --
 ALTER TABLE `activities_spots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `animals`
 --
@@ -2255,7 +2275,7 @@ ALTER TABLE `animals`
 -- AUTO_INCREMENT for table `animals_spots`
 --
 ALTER TABLE `animals_spots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `aros`
 --
@@ -2265,7 +2285,7 @@ ALTER TABLE `aros`
 -- AUTO_INCREMENT for table `aros_acos`
 --
 ALTER TABLE `aros_acos`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
 --
 -- AUTO_INCREMENT for table `assets`
 --
@@ -2285,7 +2305,7 @@ ALTER TABLE `attachments`
 -- AUTO_INCREMENT for table `blocks`
 --
 ALTER TABLE `blocks`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `blogs`
 --
@@ -2315,7 +2335,7 @@ ALTER TABLE `dashboards`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `i18n`
 --
@@ -2390,7 +2410,7 @@ ALTER TABLE `plants`
 -- AUTO_INCREMENT for table `plants_spots`
 --
 ALTER TABLE `plants_spots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `regions`
 --

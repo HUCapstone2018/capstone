@@ -42,6 +42,10 @@
             $controller->Croogo->addAco('Ecospots/Events/admin_add', array('admin'));
             $controller->Croogo->addAco('Ecospots/Spots/admin_index', array('admin'));
             $controller->Croogo->addAco('Ecospots/Spots/admin_add', array('admin'));
+            $controller->Croogo->addAco('Ecospots/Blogs/admin_index', array('admin'));
+            $controller->Croogo->addAco('Ecospots/Blogs/admin_add', array('admin'));
+            $controller->Croogo->addAco('Ecospots/Topics/admin_index', array('admin'));
+            $controller->Croogo->addAco('Ecospots/Topics/admin_add', array('admin'));
 	    }
 
 

@@ -6,9 +6,10 @@ $(window).load(function () {
 $(document).ready(function(){
 	scrollToTop();
 	themeMenu();
-	$("#searchModalInput").keyup(function(e){
-		searchModal();
-	});
+    spotsSearchWidget();
+    $("#searchModalInput").keyup(function(e){
+        searchModal();
+    });
 });
 
 // instance of fuction while Window Scroll event
@@ -91,4 +92,20 @@ function searchModal()
         else 
             searchResult[i].style.display = "none";        
     }
+}
+
+function spotsSearchWidget()
+{
+    $("#spotReserveBox").change(function(){
+        if($(this).is(":checked"))
+            location.href = Croogo.basePath+"ecospots/spots/index/natural-reserve:yes";
+        else
+            location.href = Croogo.basePath+"spots";
+    });
+
+    $("#spotNameButton").click(function(){
+        var name = $.trim($("#spotNameBox").val());
+        if(name.length != 0)
+            location.href = Croogo.basePath+"ecospots/spots/index/name:"+name;
+    });
 }
