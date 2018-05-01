@@ -24,9 +24,11 @@
 			'font-awesome',
 			'imagehover.min',
 			'menu',
-			'style',
 			'responsive',
-			'custom'
+			'owl.carousel',
+			'custom',
+			'style',
+			'settings'
 		]);
 	?>
 </head>
@@ -59,6 +61,12 @@
 				'menu',
 				'imagezoom',
 				'SmoothScroll',
+				'owl.carousel.min',
+				'rev-slider/jquery.themepunch.tools.min',
+				'rev-slider/jquery.themepunch.revolution.min',
+				'rev-slider/revolution.extension.navigation.min',
+				'rev-slider/revolution.extension.parallax.min',
+				'rev-slider/revolution.extension.slideanims.min',
 				'custom'
 			]);
 		?>

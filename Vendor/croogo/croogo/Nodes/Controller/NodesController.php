@@ -59,7 +59,12 @@ class NodesController extends NodesAppController {
  */
 	public $uses = array(
 		'Nodes.Node',
+		'Ecospots.Spot',
+		'Ecospots.Blog',
+		'Ecospots.Event'
 	);
+
+	public $helpers = array('Eco');
 
 /**
  * afterConstruct
@@ -618,63 +623,25 @@ class NodesController extends NodesAppController {
  * @access public
  */
 	public function promoted() {
-		$Node = $this->{$this->modelClass};
-		$this->set('title_for_layout', __d('croogo', 'Home'));
+		
+		$spots = $this->Spot->find('all',[
+			'conditions' => [
+				'Spot.featured' => 1
+			]
+		]);
 
-		$roleId = $this->Croogo->roleId();
-		$this->paginate[$Node->alias]['type'] = 'promoted';
-		$visibilityRolesField = $Node->escapeField('visibility_roles');
-		$this->paginate[$Node->alias]['conditions'] = array(
-			'OR' => array(
-				$visibilityRolesField => '',
-				$visibilityRolesField . ' LIKE' => '%"' . $roleId . '"%',
-			),
-		);
+		$events = $this->Event->find('all',[
+			'order' => ['Event.date ASC'],
+			'limit' => 3
+		]);
 
-		if (isset($this->request->params['named']['limit'])) {
-			$limit = $this->request->params['named']['limit'];
-		} else {
-			$limit = Configure::read('Reading.nodes_per_page');
-		}
+		$blogs = $this->Blog->find('all',[
+			'order' => ['Blog.created DESC'],
+			'limit' => 4
+		]);
 
-		if (isset($this->request->params['named']['type'])) {
-			$type = $Node->Taxonomy->Vocabulary->Type->findByAlias($this->request->params['named']['type']);
-			if (!isset($type['Type']['id'])) {
-				$this->Session->setFlash(__d('croogo', 'Invalid content type.'), 'flash', array('class' => 'error'));
-				return $this->redirect('/');
-			}
-			if (isset($type['Params']['nodes_per_page']) && empty($this->request->params['named']['limit'])) {
-				$limit = $type['Params']['nodes_per_page'];
-			}
-			$this->paginate[$Node->alias]['conditions'][$Node->escapeField('type')] = $type['Type']['alias'];
-			$this->set('title_for_layout', $type['Type']['title']);
-			$this->set(compact('type'));
-		}
-
-		$this->paginate[$Node->alias]['limit'] = $limit;
-
-		if ($this->usePaginationCache) {
-			$cacheNamePrefix = 'nodes_promoted_' . $this->Croogo->roleId() . '_' . Configure::read('Config.language');
-			if (isset($type)) {
-				$cacheNamePrefix .= '_' . $type['Type']['alias'];
-			}
-			$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
-			$cacheName = $cacheNamePrefix . '_' . $this->paginate['page'] . '_' . $limit;
-			$cacheNamePaging = $cacheNamePrefix . '_' . $this->paginate['page'] . '_' . $limit . '_paging';
-			$cacheConfig = 'nodes_promoted';
-			$nodes = Cache::read($cacheName, $cacheConfig);
-			if (!$nodes) {
-				$nodes = $this->paginate($Node->alias);
-				Cache::write($cacheName, $nodes, $cacheConfig);
-				Cache::write($cacheNamePaging, $this->request->params['paging'], $cacheConfig);
-			} else {
-				$paging = Cache::read($cacheNamePaging, $cacheConfig);
-				$this->request->params['paging'] = $paging;
-			}
-		} else {
-			$nodes = $this->paginate($Node->alias);
-		}
-		$this->set(compact('nodes'));
+		$node = $this->Node->findBySlug('home');
+		$this->set(compact('node','spots','events','blogs'));
 	}
 
 /**

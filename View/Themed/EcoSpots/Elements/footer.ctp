@@ -85,7 +85,7 @@ $events = $this->requestAction([
 <section class="footer-bottom">
     <div class="container">
         <div class="pull-left copy-text">
-            <p><a href="#">Copyrights © 2017</a> All Rights Reserved. Powered by <a href="#"><?php echo Configure::read("Site.title")?>.</a></p>
+            <p><a href="#">Copyrights © <?php echo date("Y");?></a> All Rights Reserved. Powered by <a href="#"><?php echo Configure::read("Site.title")?>.</a></p>
             
         </div>
     </div>

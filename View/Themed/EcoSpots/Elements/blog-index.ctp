@@ -37,12 +37,11 @@
 
 <section class="blog-large blog-section">
     <div class="container">
-
         <div>
                 <div class="post-area">
                     <div class="row">
                         <div class="col-sm-12 search-button-container">
-                            <button id="searchModalButton" type="button" class="btn" data-toggle="modal" data-target="#searchModal">Search</button>
+                            <button id="searchModalButton" type="button" class="btn" data-toggle="modal" data-target="#searchModal">Search by Topics</button>
                         </div>
                     </div>
                     <?php foreach($blogs as $blog) : ?>

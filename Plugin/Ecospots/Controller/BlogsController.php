@@ -60,7 +60,7 @@ class BlogsController extends AppController {
 	public function admin_index() {
 		$this->set('title_for_layout', __('List of Blogs'));
 		$this->Blog->recursive = 1;
-
+		$this->paginate['limit'] = 10;
 		$blogs = $this->paginate();
 
 		$this->set(compact('blogs'));
@@ -199,10 +199,15 @@ class BlogsController extends AppController {
 	public function index($lang = 'en') 
 	{
 		$this->set('title_for_layout', __('Blogs'));
-		if(isset($this->request->params['named']['search']))
+		if(isset($this->request->params['named']['topic']))
 		{
-			//$this->Blog->recursive = -1;
-			$options['joins'] = array(
+			$slug = $this->request->params['named']['topic'];
+
+			$this->paginate['conditions'] = array(
+			    'Topic.slug' => $slug
+			);
+			
+			$this->paginate['joins'] = array(
 			    array('table' => 'blogs_topics',
 			        'alias' => 'BlogsTopic',
 			        'type' => 'inner',
@@ -218,24 +223,15 @@ class BlogsController extends AppController {
 			        )
 			    )
 			);
-
-			$options['conditions'] = array(
-			    'Topic.slug' => $this->request->params['named']['search']
-			);
-
-			$blogs = $this->Blog->find('all',$options);
 		}
-		else
-		{
-			$this->paginate['Blog']['contain'] = ['User','Topic'];
-			$this->paginate['Blog']['limit'] = 1;
-			$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
-			$blogs = $this->paginate('Blog');
-			//debug($blogs);exit;
-		}
+
+		$this->paginate['contain'] = ['User'];
+		$this->paginate['limit'] = 5;
+		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
+		$blogs = $this->paginate('Blog');
 		
 		$this->Topic->recursive = 0;
-		$modal = $this->Topic->find('all');
+		$modal = $this->Topic->find('all',['fields'=>['name','ar_name','slug']]);
 
 		$this->set(compact('blogs','lang','modal'));
 	}

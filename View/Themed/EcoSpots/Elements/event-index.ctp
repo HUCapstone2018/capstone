@@ -36,6 +36,11 @@
 <section class="eventlist">
     <div class="container">
         <div class="row">
+            <div class="row">
+                <div class="col-sm-12 search-button-container">
+                    <button id="searchModalButton" type="button" class="btn" data-toggle="modal" data-target="#searchModal">Search by Spots</button>
+                </div>
+            </div>
             <?php foreach($events as $event):?>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="outer-box sec-padd event-style2">
@@ -59,7 +64,7 @@
                                     </h4>
                                 </a>
                                 <div class="text">
-                                     <?php echo implode(' ', array_slice(explode(' ', $event['Event']['excerpt']), 0, 100));?>  
+                                     <?php echo $this->Eco->excerpt($event['Event']['excerpt']);?>  
                                 </div>                            
                             </div>
                         </div>      
@@ -83,4 +88,4 @@
     </div>
 </section>
 
-<?php echo $this->element('search-modal',['search'=>'topic']);?>
+<?php echo $this->element('search-modal',['search'=>'spot']);?>

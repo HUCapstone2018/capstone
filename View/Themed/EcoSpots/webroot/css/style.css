@@ -8550,6 +8550,127 @@ article.slide-item.center {}
   padding-top: 7px;
 }
 
+.service-catergory li {
+  float: none;
+}
+
+.service-category li.active{
+  background: white;
+  color: #8dc63f;
+}
+
+.default-sidebar .service-catergory li.active{
+  background: none;
+}
+.default-sidebar .service-catergory li.active a,
+.default-sidebar .service-catergory li.active a:hover
+{
+  color:#8dc63f;
+  border:none;
+}
+
+
+.icon-box .fa {
+  font-size: 40px;
+
+
+}
+
+.service .service-item:hover .icon-box .fa {
+  color: white;
+  z-index: 10;
+  position: relative;
+}
+
+.nav > li > a
+{
+  color: black;
+  font-weight: bold;
+}
+
+.nav > li > a:focus, 
+.nav > li > a:hover
+{
+  color: #8dc63f;
+  background: white;
+}
+
+
+
+.natural-reserve-msg
+{
+  display: block;
+  text-align: right;
+}
+
+.natural-reserve-msg i
+{
+  color: #8dc63f;
+}
+
+.blog-single-post .post-area.spots-description
+{
+    padding: 0;
+}
+
+
+.default-sidebar .service-catergory li{padding:0;margin-bottom: 0;}
+.default-sidebar .service-catergory li a{padding:24px 0 24px 23px;}
+
+.service-catergory li:hover
+{
+  background: white;
+}
+
+.service-catergory a:hover
+{
+  border:none;
+}
+
+
+
+.default-sidebar .service-catergory li a::after
+{
+  top: 25px;
+}
+
+.full-width
+{
+  width:100%;
+}
+
+.full-width:hover h4
+{
+  color: #8dc63f;
+}
+
+.eventlist .sec-padd
+{
+  padding: 0;
+}
+
+.eventlist .page_pagination
+{
+  margin-bottom: 20px;
+}
+
+.tparrows:before
+{
+  position: absolute;
+  top: 10px;
+  left: 25px;
+}
+
+.default-blog-news .date
+{
+  top:0;
+}
+
+a .text
+{
+  color: grey;
+}
+
 @media screen and (max-width: 990px)
 {
     .form-grp-inline
@@ -8564,4 +8685,33 @@ article.slide-item.center {}
       display: block;
       width: 100%;
     }
+
+    .navbar-nav
+    {
+      margin: 0;
+    }
+
+    .navbar-header .icon-bar
+    {
+      border: 1px solid #8dc63f;
+    }
+
+    .navbar-header > button
+    {
+      left: -20px;
+    }
+
+    .natural-reserve-msg
+    {
+      text-align: center;
+    }
 }
+
+@media screen and (min-width: 991px)
+{
+  #mainNavbar
+  {
+    padding-right: 50px;
+  }
+}
+

@@ -57,6 +57,12 @@ CroogoRouter::connect('/spots', array(
 	'action' => 'index'
 ));
 
+CroogoRouter::connect('/spot/:slug', array(
+	'plugin' => 'ecospots',
+	'controller' => 'spots',
+	'action' => 'view'
+));
+
 CroogoRouter::routes();
 Router::parseExtensions();
 Router::setExtensions(array('json', 'rss'));

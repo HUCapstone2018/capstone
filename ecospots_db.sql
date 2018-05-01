@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2018 at 03:28 PM
+-- Generation Time: May 01, 2018 at 01:28 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -483,8 +483,8 @@ CREATE TABLE `activities_spots` (
 --
 
 INSERT INTO `activities_spots` (`id`, `activity_id`, `spot_id`) VALUES
-(8, 2, 1),
-(7, 3, 2);
+(11, 2, 1),
+(10, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -530,7 +530,7 @@ CREATE TABLE `animals_spots` (
 --
 
 INSERT INTO `animals_spots` (`id`, `animal_id`, `spot_id`) VALUES
-(5, 1, 1);
+(7, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -702,7 +702,10 @@ CREATE TABLE `assets` (
 
 INSERT INTO `assets` (`id`, `parent_asset_id`, `foreign_key`, `model`, `filename`, `filesize`, `width`, `height`, `mime_type`, `extension`, `hash`, `path`, `adapter`, `created`, `modified`) VALUES
 (3, NULL, '1', 'AssetsAttachment', 'IMG_22092017_082418_0.png', 84817, 1253, 847, 'image/jpeg', 'png', '247d5c72cf3e13dc2b42d7d156356811239b46e9', '/assets/57\\91\\08/247d5c72cf3e13dc2b42d7d156356811239b46e9.png', 'LocalAttachment', '2018-03-17 21:30:57', '2018-03-17 21:30:57'),
-(4, NULL, '2', 'AssetsAttachment', 'Goals.png', 196420, 1366, 639, 'image/png', 'png', 'f00de0f27daebff365831573d0215b50aa297d8b', '/assets/21\\21\\54/f00de0f27daebff365831573d0215b50aa297d8b.png', 'LocalAttachment', '2018-03-17 21:30:57', '2018-03-17 21:30:57');
+(4, NULL, '2', 'AssetsAttachment', 'Goals.png', 196420, 1366, 639, 'image/png', 'png', 'f00de0f27daebff365831573d0215b50aa297d8b', '/assets/21\\21\\54/f00de0f27daebff365831573d0215b50aa297d8b.png', 'LocalAttachment', '2018-03-17 21:30:57', '2018-03-17 21:30:57'),
+(5, NULL, '3', 'AssetsAttachment', 'b.jpg', 153129, 940, 520, 'image/jpeg', 'jpg', '3d7a67a72c68a6efe71e9d56901c904a936deb0c', '/assets/50\\90\\22/3d7a67a72c68a6efe71e9d56901c904a936deb0c.jpg', 'LocalAttachment', '2018-05-01 12:22:46', '2018-05-01 12:22:46'),
+(6, NULL, '4', 'AssetsAttachment', 'c.jpg', 259517, 1920, 1080, 'image/jpeg', 'jpg', '93682c099fe4cfc011fc5c3a700f368c1b046d74', '/assets/94\\51\\04/93682c099fe4cfc011fc5c3a700f368c1b046d74.jpg', 'LocalAttachment', '2018-05-01 12:22:46', '2018-05-01 12:22:46'),
+(7, NULL, '5', 'AssetsAttachment', 'a.jpg', 329906, 1080, 720, 'image/jpeg', 'jpg', '5df38c80757e872370293f1f1c419ec200960644', '/assets/54\\53\\04/5df38c80757e872370293f1f1c419ec200960644.jpg', 'LocalAttachment', '2018-05-01 12:22:46', '2018-05-01 12:22:46');
 
 -- --------------------------------------------------------
 
@@ -729,8 +732,9 @@ CREATE TABLE `asset_usages` (
 INSERT INTO `asset_usages` (`id`, `asset_id`, `model`, `foreign_key`, `type`, `url`, `created`, `modified`, `params`) VALUES
 (3, 4, 'Spot', '1', 'FeaturedImage', NULL, '2018-03-24 20:07:17', '2018-03-24 20:07:29', NULL),
 (4, 3, 'Spot', '1', NULL, NULL, '2018-03-24 20:07:19', '2018-03-24 20:07:19', NULL),
-(5, 4, 'Node', '6', 'FeaturedImage', NULL, '2018-04-19 15:26:54', '2018-04-19 15:34:20', NULL),
-(6, 3, 'Node', '6', 'thumb', NULL, '2018-04-19 15:26:58', '2018-04-19 15:34:31', NULL);
+(8, 6, 'Node', '6', NULL, NULL, '2018-05-01 12:22:46', '2018-05-01 12:22:46', NULL),
+(7, 5, 'Node', '6', NULL, NULL, '2018-05-01 12:22:46', '2018-05-01 12:22:46', NULL),
+(9, 7, 'Node', '6', NULL, NULL, '2018-05-01 12:22:46', '2018-05-01 12:22:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -763,7 +767,10 @@ CREATE TABLE `attachments` (
 
 INSERT INTO `attachments` (`id`, `title`, `slug`, `body`, `excerpt`, `status`, `sticky`, `visibility_roles`, `hash`, `plugin`, `import_path`, `created`, `created_by`, `updated`, `updated_by`, `asset_count`) VALUES
 (1, 'IMG_22092017_082418_0.png', 'IMG_22092017_082418_0.png', '', '', 1, 0, NULL, '247d5c72cf3e13dc2b42d7d156356811239b46e9', NULL, NULL, '2018-03-17 21:30:57', 1, '2018-03-17 21:30:57', 1, NULL),
-(2, 'Goals.png', 'Goals.png', '', '', 1, 0, NULL, 'f00de0f27daebff365831573d0215b50aa297d8b', NULL, NULL, '2018-03-17 21:30:57', 1, '2018-03-17 21:30:57', 1, NULL);
+(2, 'Goals.png', 'Goals.png', '', '', 1, 0, NULL, 'f00de0f27daebff365831573d0215b50aa297d8b', NULL, NULL, '2018-03-17 21:30:57', 1, '2018-03-17 21:30:57', 1, NULL),
+(3, 'b.jpg', 'b.jpg', '', '', 1, 0, NULL, '3d7a67a72c68a6efe71e9d56901c904a936deb0c', NULL, NULL, '2018-05-01 12:22:46', 1, '2018-05-01 12:22:46', 1, NULL),
+(4, 'c.jpg', 'c.jpg', '', '', 1, 0, NULL, '93682c099fe4cfc011fc5c3a700f368c1b046d74', NULL, NULL, '2018-05-01 12:22:46', 1, '2018-05-01 12:22:46', 1, NULL),
+(5, 'a.jpg', 'a.jpg', '', '', 1, 0, NULL, '5df38c80757e872370293f1f1c419ec200960644', NULL, NULL, '2018-05-01 12:22:46', 1, '2018-05-01 12:22:46', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -801,11 +808,13 @@ CREATE TABLE `blocks` (
 INSERT INTO `blocks` (`id`, `region_id`, `title`, `alias`, `body`, `show_title`, `class`, `status`, `weight`, `element`, `visibility_roles`, `visibility_paths`, `visibility_php`, `params`, `publish_start`, `publish_end`, `updated`, `updated_by`, `created`, `created_by`) VALUES
 (13, 7, 'Header', 'header', '', 0, '', 1, 1, 'header', '', '', NULL, '', NULL, NULL, '2018-04-22 12:33:04', 1, '2017-12-12 22:24:56', 1),
 (14, 8, 'Footer', 'footer', '', 0, '', 1, 2, 'footer', '', '', NULL, '', NULL, NULL, '2018-04-22 12:33:11', 1, '2017-12-12 23:24:14', 1),
-(18, 19, 'Blog Index', 'blog-index', '', 0, '', 1, 3, 'blog-index', '', '[\"/blogs\"]', NULL, '', NULL, NULL, '2018-04-28 10:58:18', 1, '2017-12-14 14:05:55', 1),
+(18, 19, 'Blog Index', 'blog-index', '', 0, '', 1, 3, 'blog-index', '', '[\"plugin:ecospots/controller:blogs/action:index\"]', NULL, '', NULL, NULL, '2018-04-29 13:23:50', 1, '2017-12-14 14:05:55', 1),
 (20, 19, 'Blog view', 'blog-view', '', 0, '', 1, 4, 'blog-view', '', '[\"plugin:ecospots/controller:blogs/action:view\"]', NULL, '', NULL, NULL, '2018-04-28 12:01:30', 1, '2018-04-19 16:06:58', 1),
 (21, 19, 'Event Index', 'event-index', '', 0, '', 1, 5, 'event-index', '', '[\"plugin:ecospots/controller:events/action:index\"]', NULL, '', NULL, NULL, '2018-04-28 12:23:18', 1, '2018-04-28 10:58:06', 1),
 (22, 19, 'Event View', 'event-view', '', 0, '', 1, 6, 'event-view', '', '[\"plugin:ecospots/controller:events/action:view\"]', NULL, '', NULL, NULL, '2018-04-28 12:01:43', 1, '2018-04-28 11:48:12', 1),
-(23, 19, 'Spot Index', 'spot-index', '', 0, '', 1, 7, 'spot-index', '', '[\"plugin:ecospots/controller:spots/action:index\"]', NULL, '', NULL, NULL, '2018-04-28 12:22:38', 1, '2018-04-28 12:11:16', 1);
+(23, 19, 'Spot Index', 'spot-index', '', 0, '', 1, 7, 'spot-index', '', '[\"plugin:ecospots/controller:spots/action:index\"]', NULL, '', NULL, NULL, '2018-04-28 12:22:38', 1, '2018-04-28 12:11:16', 1),
+(24, 19, 'Spots View', 'spot-view', '', 0, '', 1, 8, 'spot-view', '', '[\"plugin:ecospots/controller:spots/action:view\"]', NULL, '', NULL, NULL, '2018-04-29 11:51:37', 1, '2018-04-29 11:51:37', 1),
+(25, 19, 'Home Page', 'home-page', '', 0, '', 1, 9, 'home-page', '', '[\"plugin:nodes/controller:nodes/action:promoted\"]', NULL, '', NULL, NULL, '2018-05-01 10:23:40', 1, '2018-05-01 10:23:40', 1);
 
 -- --------------------------------------------------------
 
@@ -835,8 +844,8 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `name`, `ar_name`, `slug`, `photo`, `excerpt`, `ar_excerpt`, `description`, `ar_description`, `author`, `weight`, `user_id`, `updated`, `created`) VALUES
-(1, 'eded', '', 'eded', '', 'edede', '', '<p>dededededededed</p>\r\n', '', 'ededededededed', 1, 1, '2018-04-26 17:35:14', '2018-04-26 17:35:14'),
-(2, 'rryhb', '', 'rryhb', '', 'hghrtgb', '', '<p>rghghttt</p>\r\n', '', 'thwh', 2, 1, '2018-04-26 17:35:26', '2018-04-26 17:35:26');
+(1, 'eded', '', 'eded', '', 'edede', '', '<p>dededededededed</p>\r\n', '', 'ededededededed', 1, 1, '2018-04-29 13:27:11', '2018-04-26 17:35:14'),
+(2, 'rryhb', '', 'rryhb', '', 'hghrtgb', '', '<p>rghghttt</p>\r\n', '', 'thwh', 2, 1, '2018-04-29 13:27:18', '2018-04-26 17:35:26');
 
 -- --------------------------------------------------------
 
@@ -855,9 +864,7 @@ CREATE TABLE `blogs_topics` (
 --
 
 INSERT INTO `blogs_topics` (`id`, `topic_id`, `blog_id`) VALUES
-(7, 1, 2),
-(5, 1, 3),
-(6, 2, 1);
+(9, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -985,7 +992,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `ar_name`, `slug`, `photo`, `excerpt`, `ar_excerpt`, `description`, `ar_description`, `date`, `weight`, `user_id`, `spot_id`, `updated`, `created`) VALUES
-(1, 'Marathon', '', 'marathon', NULL, 'edwerdfwerfw3fwerdfe3d4d', '', '<p>d32df2dfr4f</p>\r\n', '', '2018-04-28 11:40:00', NULL, 1, 1, '2018-04-28 11:40:31', '2018-04-28 11:40:31');
+(1, 'Marathon', '', 'marathon', NULL, 'edwerdfwerfw3fwerdfe3d4d', '', '<p>d32df2dfr4f</p>\r\n', '', '2018-04-28 11:40:00', NULL, 1, 1, '2018-04-28 11:40:31', '2018-04-28 11:40:31'),
+(2, 'Food Festival', '', 'food-festival', NULL, '', '', '', '', '2018-04-29 13:47:00', NULL, 1, 2, '2018-04-29 13:48:14', '2018-04-29 13:48:14');
 
 -- --------------------------------------------------------
 
@@ -1306,14 +1314,6 @@ CREATE TABLE `model_taxonomies` (
   `taxonomy_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `model_taxonomies`
---
-
-INSERT INTO `model_taxonomies` (`id`, `model`, `foreign_key`, `taxonomy_id`) VALUES
-(4, 'Node', 10, 4),
-(5, 'Node', 10, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -1357,7 +1357,7 @@ INSERT INTO `nodes` (`id`, `parent_id`, `user_id`, `title`, `slug`, `body`, `exc
 (7, NULL, 0, 'hareesa', 'hareesa.jpg', '', NULL, NULL, 'image/jpeg', 1, 0, 0, '/uploads/hareesa.jpg', NULL, 0, 1, 2, NULL, 'attachment', NULL, NULL, '2018-03-17 19:01:35', 1, '2018-03-17 19:01:35', 1),
 (8, NULL, 0, 'cat', 'cat.jpg', '', NULL, NULL, 'image/jpeg', 1, 0, 0, '/uploads/cat.jpg', NULL, 0, 3, 4, NULL, 'attachment', NULL, NULL, '2018-03-17 19:21:50', 1, '2018-03-17 19:21:50', 1),
 (9, NULL, 0, 'tulip', 'tulip.jpg', '', NULL, NULL, 'image/jpeg', 1, 0, 0, '/uploads/tulip.jpg', NULL, 0, 5, 6, NULL, 'attachment', NULL, NULL, '2018-03-17 19:23:47', 1, '2018-03-17 19:23:47', 1),
-(10, NULL, 1, 'Test Blog', 'test-blog', '<p>ededed</p>\r\n', 'efe3d', 1, NULL, 1, 0, 0, '/blog/test-blog', '{\"4\":\"global-warming\",\"5\":\"poor-people\"}', 0, 7, 8, '', 'blog', NULL, NULL, '2018-04-22 07:07:14', 1, '2018-04-18 20:11:45', 1);
+(11, NULL, 0, 'preview', 'preview.jpg', '', NULL, NULL, 'image/jpeg', 1, 0, 0, '/uploads/preview.jpg', NULL, 0, 7, 8, NULL, 'attachment', NULL, NULL, '2018-05-01 12:17:52', 1, '2018-05-01 12:17:52', 1);
 
 -- --------------------------------------------------------
 
@@ -1403,7 +1403,7 @@ CREATE TABLE `plants_spots` (
 --
 
 INSERT INTO `plants_spots` (`id`, `plant_id`, `spot_id`) VALUES
-(5, 1, 1);
+(7, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1442,7 +1442,7 @@ INSERT INTO `regions` (`id`, `title`, `alias`, `description`, `block_count`, `cr
 (15, 'region7', 'region7', '', 0, '2017-10-29 06:55:19', NULL, '2017-10-29 06:55:19', NULL),
 (16, 'region8', 'region8', '', 0, '2017-10-29 06:55:19', NULL, '2017-10-29 06:55:19', NULL),
 (17, 'region9', 'region9', '', 0, '2017-10-29 06:55:19', NULL, '2017-10-29 06:55:19', NULL),
-(19, 'inside', 'inside', NULL, 5, '2017-12-14 14:00:53', 1, '2017-12-14 14:17:03', 1);
+(19, 'inside', 'inside', NULL, 7, '2017-12-14 14:00:53', 1, '2017-12-14 14:17:03', 1);
 
 -- --------------------------------------------------------
 
@@ -1734,6 +1734,7 @@ CREATE TABLE `spots` (
   `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `ar_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `reserve` tinyint(1) NOT NULL DEFAULT '0',
+  `featured` tinyint(1) NOT NULL DEFAULT '0',
   `weight` int(11) DEFAULT NULL,
   `map_id` int(11) DEFAULT NULL,
   `spot_id` int(11) DEFAULT NULL,
@@ -1745,9 +1746,9 @@ CREATE TABLE `spots` (
 -- Dumping data for table `spots`
 --
 
-INSERT INTO `spots` (`id`, `name`, `ar_name`, `slug`, `photo`, `excerpt`, `ar_excerpt`, `description`, `ar_description`, `reserve`, `weight`, `map_id`, `spot_id`, `updated`, `created`) VALUES
-(1, 'aq', '', 'aq', '', 'ededed', '', '<p>edededededededededed</p>\r\n', '', 0, 1, NULL, NULL, '2018-04-28 13:15:01', '2018-04-28 12:58:02'),
-(2, 's2', '', 's2', '', 'dededede', '', '<p>dedededededede</p>\r\n', '', 1, 2, NULL, NULL, '2018-04-28 13:14:54', '2018-04-28 12:58:14');
+INSERT INTO `spots` (`id`, `name`, `ar_name`, `slug`, `photo`, `excerpt`, `ar_excerpt`, `description`, `ar_description`, `reserve`, `featured`, `weight`, `map_id`, `spot_id`, `updated`, `created`) VALUES
+(1, 'aq', '', 'aq', 'preview.jpg', 'ededed', '', '<p>edededededededededed</p>\r\n', '', 0, 1, 1, NULL, NULL, '2018-05-01 12:17:55', '2018-04-28 12:58:02'),
+(2, 's2', '', 's2', '', 'dededede', '', '<p>dedededededede</p>\r\n', '', 1, 1, 2, NULL, NULL, '2018-05-01 12:05:41', '2018-04-28 12:58:14');
 
 -- --------------------------------------------------------
 
@@ -2265,7 +2266,7 @@ ALTER TABLE `activities`
 -- AUTO_INCREMENT for table `activities_spots`
 --
 ALTER TABLE `activities_spots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `animals`
 --
@@ -2275,7 +2276,7 @@ ALTER TABLE `animals`
 -- AUTO_INCREMENT for table `animals_spots`
 --
 ALTER TABLE `animals_spots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `aros`
 --
@@ -2290,22 +2291,22 @@ ALTER TABLE `aros_acos`
 -- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `asset_usages`
 --
 ALTER TABLE `asset_usages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `attachments`
 --
 ALTER TABLE `attachments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `blocks`
 --
 ALTER TABLE `blocks`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `blogs`
 --
@@ -2315,7 +2316,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `blogs_topics`
 --
 ALTER TABLE `blogs_topics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -2335,7 +2336,7 @@ ALTER TABLE `dashboards`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `i18n`
 --
@@ -2400,7 +2401,7 @@ ALTER TABLE `model_taxonomies`
 -- AUTO_INCREMENT for table `nodes`
 --
 ALTER TABLE `nodes`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `plants`
 --
@@ -2410,7 +2411,7 @@ ALTER TABLE `plants`
 -- AUTO_INCREMENT for table `plants_spots`
 --
 ALTER TABLE `plants_spots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `regions`
 --
@@ -2475,7 +2476,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT for table `types_vocabularies`
 --
 ALTER TABLE `types_vocabularies`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -2485,7 +2486,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vocabularies`
 --
 ALTER TABLE `vocabularies`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

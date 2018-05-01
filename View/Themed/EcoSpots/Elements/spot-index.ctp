@@ -74,14 +74,16 @@
                             </div>
                         </figure>
                         
-                        <div class="content">           
-                            <div class="text center">
-                                <a href="single-cause.html"><h4 class="title"><?php echo $spot['Spot']['name'];?></h4></a>
-                                <p>
-                                    <?php echo implode(' ', array_slice(explode(' ', $spot['Spot']['excerpt']), 0, 100));?>         
-                                </p>  
-                            </div>
-                        </div>                        
+                        <a href="<?=$this->HTML->url('/spot/'.$spot['Spot']['slug'])?>" class="full-width">
+                            <div class="content">           
+                                <div class="text center">
+                                    <h4 class="title"><?php echo $spot['Spot']['name'];?></h4>
+                                    <p>
+                                        <?php echo implode(' ', array_slice(explode(' ', $spot['Spot']['excerpt']), 0, 100));?>         
+                                    </p>  
+                                </div>
+                            </div>     
+                        </a>                   
                                 
                     </div>
                 </article>

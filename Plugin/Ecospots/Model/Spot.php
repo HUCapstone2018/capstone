@@ -72,7 +72,8 @@ class Spot extends AppModel {
         'excerpt',
         'description',
         'photo',
-        'reserve' => ['label' => 'is a Natural Reserve']
+        'reserve' => ['label' => 'is a Natural Reserve'],
+        'featured' => ['label' => 'Featured on Homepage']
     );
 
 }

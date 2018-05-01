@@ -6,6 +6,8 @@ $(window).load(function () {
 $(document).ready(function(){
 	scrollToTop();
 	themeMenu();
+    initOwls();
+    initRevSlider();
     spotsSearchWidget();
     $("#searchModalInput").keyup(function(e){
         searchModal();
@@ -108,4 +110,92 @@ function spotsSearchWidget()
         if(name.length != 0)
             location.href = Croogo.basePath+"ecospots/spots/index/name:"+name;
     });
+}
+
+function initOwls()
+{
+    if ($('.cause-carousel').length) {
+        $('.cause-carousel').owlCarousel({
+            loop: true,
+            items:3,
+            autoplay:true,
+            nav:true,
+            margin:30,
+            smartSpeed: 3000,
+            navText: [
+                '<i class="icon-left-arrow-angle"></i>',
+                '<i class="icon-left-arrow-angle2"></i>'
+            ],
+            dots: false,
+            responsive: {
+                0:{
+                    items:1,
+                    loop:true,
+                    dots:false
+                },
+                600:{
+                    items:2,
+                    loop:true,
+                },
+                992:{
+                    items:3,
+                    loop:true
+                }
+            }
+        });
+    }
+}
+
+function initRevSlider () {
+    if ($('.rev_slider_wrapper #slider1').length) {
+        jQuery("#slider1").revolution({
+            sliderType:"standard",
+            sliderLayout:"auto",
+            dottedOverlay:"yes",
+            delay:5000,
+            navigation: {
+                arrows:{enable:true,
+                        left: {
+                        h_align: "left",
+                        v_align: "center",
+                        h_offset: 60,
+                        v_offset: 0
+                    },
+                    right: {
+                        h_align: "right",
+                        v_align: "center",
+                        h_offset: 60,
+                        v_offset: 0
+                    }
+
+                } 
+            }, 
+            gridwidth: [1200,],
+            gridheight: [790,],
+            lazyType: "none",
+            parallax: {
+                type: "mouse",
+                origo: "slidercenter",
+                speed: 2000,
+                levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
+            },
+            shadow: 0,
+            spinner: "off",
+            stopLoop: "off",
+            stopAfterLoops: -1,
+            stopAtSlide: -1,
+            shuffle: "off",
+            autoHeight: "off",
+            hideThumbsOnMobile: "off",
+            hideSliderAtLimit: 0,
+            hideCaptionAtLimit: 0,
+            hideAllCaptionAtLilmit: 0,
+            debugMode: false,
+            fallbacks: {
+                simplifyAll: "off",
+                nextSlideOnWindowFocus: "off",
+                disableFocusListener: false,
+            }
+        });
+    };
 }

@@ -215,14 +215,17 @@ class SpotsController extends AppController {
 		$this->set(compact('spots','modal'));
 	}
 
-	public function view($slug, $lang = 'en')
+	public function view($lang = 'en')
 	{
 		$this->set('title_for_layout', __('View Spot'));
-		if(empty($slug))
+		if(!$this->request->params['slug'])
 		{
-			$this->Session->setFlash(__('Invalid Spot'), 'default', array('class' => 'error'));
-			$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('No Spot was specified.'), 'default', array('class' => 'error'));
+				$this->redirect(array('action' => 'index'));
 		}
+
+		$slug = $this->request->params['slug'];
+
 		$this->Spot->recursive = 2;
 		$spot = $this->Spot->findBySlug($slug);
 		

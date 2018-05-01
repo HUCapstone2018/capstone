@@ -12,5 +12,10 @@ class EcoHelper extends AppHelper
     {
 
     }
+
+    public function excerpt($excerpt)
+    {
+    	return implode(' ', array_slice(explode(' ', $excerpt), 0, 100));
+    }
 }
 ?>

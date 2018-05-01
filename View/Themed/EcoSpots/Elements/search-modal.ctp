@@ -1,7 +1,6 @@
 
 <?php
     $plugin = 'ecospots';
-    $controller = $search == 'topic' ? 'blogs' : 'spots';
     $action = 'index';
 
     $modal_data = [
@@ -9,22 +8,33 @@
             'en' => [
                 'topic' => 'Search Topic',
                 'activity' => 'Search Activities',
-                'event' => 'Search Events'
+                'spot' => 'Search Spots'
             ],
             'ar' => [
                 'topic' => 'Search Topic',
                 'activity' => 'Search Activities',
-                'event' => 'Search Events'
+                'spot' => 'Search Spots'
             ]
         ],
         'Modal' => [
                 'topic' => 'Topic',
                 'activity' => 'Activity',
-                'event' => 'Event'
+                'spot' => 'Spot'
+        ],
+        'Controller' => [
+                'topic' => 'blogs',
+                'activity' => 'spots',
+                'spot' => 'events'
+        ],
+        'Params' => [
+                'topic' => 'topic',
+                'activity' => 'activity',
+                'spot' => 'spot'
         ]
     ];
 
     $language = 'en';
+    $controller = $modal_data['Controller'][$search];
     $arabic_prefix = '';
     if(isset($lang) && $lang == 'ar')
     {
@@ -47,7 +57,7 @@
                             'plugin' => $plugin,
                             'controller' => $controller,
                             'action' => $action,
-                            'activity' => $row[$modal_data['Modal'][$search]]['slug']
+                            $modal_data['Params'][$search] => $row[$modal_data['Modal'][$search]]['slug']
                         ])?>">
                         <h4><?=$row[$modal_data['Modal'][$search]][$arabic_prefix.'name']?></h4>
                     </a>

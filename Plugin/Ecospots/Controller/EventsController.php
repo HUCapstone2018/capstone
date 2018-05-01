@@ -142,11 +142,34 @@ class EventsController extends AppController {
 	{
 		$this->set('title_for_layout', __('View Event'));
 
-		$this->paginate['Event']['limit'] = 1;
+		if(isset($this->request->params['named']['spot']))
+		{
+			$slug = $this->request->params['named']['spot'];
+
+			$this->paginate['conditions'] = array(
+			    'Spot.slug' => $slug
+			);
+			
+			$this->paginate['joins'] = array(
+			    array('table' => 'spots',
+			        'alias' => 'Spot',
+			        'type' => 'inner',
+			        'conditions' => array(
+			            '`Event`.`spot_id` = `Spot`.`id`'
+			        )
+			    )
+			);
+		}
+
+		$this->paginate['contain'] = ['User'];
+		$this->paginate['limit'] = 5;
 		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
 		$events = $this->paginate('Event');
 		
-		$this->set(compact('events','lang'));
+		$this->Spot->recursive = 0;
+		$modal = $this->Spot->find('all',['fields'=>['name','ar_name','slug']]);
+
+		$this->set(compact('events','lang','modal'));
 	}
 
 	public function view($lang = 'en')

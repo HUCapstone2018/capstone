@@ -72,6 +72,7 @@ class EcospotsSchema extends CakeSchema {
         'description' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
         'ar_description' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
         'reserve' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+        'featured' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
         'weight' => array('type'=>'integer','null'=>true,'default'=>null),
         'map_id' => array('type'=>'integer','null'=>true,'default' => null),
         'spot_id' => array('type'=>'integer','null'=>true,'default' => null),
