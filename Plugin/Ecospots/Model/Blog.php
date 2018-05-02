@@ -91,7 +91,7 @@ class Blog extends AppModel {
         'description',
         'author',
         'photo',
-        'reference'
+        'reference' => ['label' => 'References', 'help' => 'Seperate Links by new line']
     );
 
 

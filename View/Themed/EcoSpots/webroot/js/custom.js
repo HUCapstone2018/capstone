@@ -8,7 +8,9 @@ $(document).ready(function(){
 	themeMenu();
     initOwls();
     initRevSlider();
+    initFactCounter();
     spotsSearchWidget();
+    initGoogleMap();
     $("#searchModalInput").keyup(function(e){
         searchModal();
     });
@@ -17,7 +19,7 @@ $(document).ready(function(){
 // instance of fuction while Window Scroll event
 $(window).scroll(function () {	
 	stickyHeader();
-	factCounter();
+	initFactCounter();
 });
 
 
@@ -198,4 +200,51 @@ function initRevSlider () {
             }
         });
     };
+}
+
+// Fact Counter
+function initFactCounter() {
+    if($('.fact-counter').length){
+        $('.fact-counter .counter-column.animated').each(function() {
+    
+            var $t = $(this),
+                n = $t.find(".count-text").attr("data-stop"),
+                r = parseInt($t.find(".count-text").attr("data-speed"), 10);
+                
+            if (!$t.hasClass("counted")) {
+                $t.addClass("counted");
+                $({
+                    countNum: $t.find(".count-text").text()
+                }).animate({
+                    countNum: n
+                }, {
+                    duration: r,
+                    easing: "linear",
+                    step: function() {
+                        $t.find(".count-text").text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $t.find(".count-text").text(this.countNum);
+                    }
+                });
+            }
+            
+        });
+    }
+}
+
+function initGoogleMap()
+{
+     if($('#spotMap').length)
+     {
+        $.getScript("https://maps.googleapis.com/maps/api/js?key="+API_KEY, function(){
+            var mapCanvas = document.getElementById("spotMap");
+            options.center = new google.maps.LatLng(latitude,longitude);
+            var map = new google.maps.Map(mapCanvas, options);
+            var marker = new google.maps.Marker({
+              position: {lat: latitude, lng: longitude},
+              map: map
+            });
+        })
+     }
 }

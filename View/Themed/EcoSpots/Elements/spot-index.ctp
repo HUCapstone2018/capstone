@@ -62,7 +62,10 @@
                 <article class="col-md-4 col-sm-6 col-xs-12">
                     <div class="item clearfix with-mb">
                         <figure class="img-box">
-                            <?php echo $this->HTML->image('resource/9.jpg');?>
+                            <?php 
+                                $image = !empty($spot['Spot']['photo']) ? 'uploads/'.$spot['Spot']['photo'] : 'uploads/no-image.jpg';
+                                echo $this->Image->crop($image,400,300);
+                            ?>
                             <div class="overlay">
                                 <div class="inner-box">
                                     <div class="content-box">

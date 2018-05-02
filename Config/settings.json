@@ -3,7 +3,7 @@
         "acl_plugin": "Acl",
         "admin_theme": "AdminExtras",
         "asset_timestamp": "force",
-        "email": "you@your-site.com",
+        "email": "info@ecospots.com",
         "feed_url": "",
         "home_url": "",
         "ipWhitelist": "127.0.0.1",
@@ -13,7 +13,9 @@
         "theme": "EcoSpots",
         "timezone": "UTC",
         "title": "EcoSpots",
-        "Google_Map_API_Key": "test map key"
+        "Google_Map_API_Key": " AIzaSyCQrsWDamKgcrgVqFdGkQVnnxwSuMrd7lw",
+        "phone": "+123-456-7890",
+        "address": "Lebanon"
     },
     "Croogo": {
         "Api": {
@@ -128,5 +130,9 @@
         "adwords_conversion_color_contact": "",
         "adwords_conversion_label_contact": "",
         "adwords_conversion_value_contact": ""
+    },
+    "Fact": {
+        "environmentalists": 347,
+        "funds": 22300
     }
 }

@@ -22,7 +22,7 @@
             <h2>In EcoSpots you can know all about <span class="thm-color"></span></h2>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-x-12">
+            <a class="col-md-4 col-sm-6 col-x-12 green-link" href="<?=$this->HTML->url('/spots')?>">
                 <div class="service-item center">
                     <div class="icon-box">
                         <i class="fa fa-map-signs"></i>
@@ -30,8 +30,8 @@
                     <h4>Interesting Spots</h4>
                     <p>Explore hidden natural locations in Lebanon</p>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-x-12">
+            </a>
+            <a class="col-md-4 col-sm-6 col-x-12 green-link" href="<?=$this->HTML->url('/events')?>">
                 <div class="service-item center">
                     <div class="icon-box">
                        <i class="fa fa-flag"></i>
@@ -39,8 +39,8 @@
                     <h4>Events</h4>
                     <p>Check and participate in our daily events</p>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-x-12">
+            </a>
+            <a class="col-md-4 col-sm-6 col-x-12 green-link" href="<?=$this->HTML->url('/blogs green-link')?>">
                 <div class="service-item center">
                     <div class="icon-box">
                         <i class="fa fa-laptop"></i>
@@ -48,7 +48,7 @@
                     <h4>Our Blog</h4>
                     <p>Read credible environmental news</p>
                 </div>
-            </div>
+            </a>
             
         </div>
     </div>
@@ -63,38 +63,38 @@
         <div class="row clearfix">
             <div class="counter-outer clearfix">
                 <!--Column-->
-                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0ms">
+                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn animated" data-wow-duration="0ms">
                     <div class="item">
                         <div class="icon"><i class="icon-heart2"></i></div>
-                        <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="300">0</span>+</div>
+                        <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="<?=$facts['spots']?>">0</span>+</div>
                         <h4 class="counter-title">Spots</h4>
                     </div>
                         
                 </article>
                 
                 <!--Column-->
-                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0ms">
+                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn animated" data-wow-duration="0ms">
                     <div class="item">
                         <div class="icon"><i class="icon-money"></i></div>
-                        <div class="count-outer">$<span class="count-text" data-speed="3000" data-stop="22300">0</span>+</div>
+                        <div class="count-outer">$<span class="count-text" data-speed="3000" data-stop="<?=$facts['funds']?>">0</span>+</div>
                         <h4 class="counter-title">Environmental Funds</h4>
                     </div>
                 </article>
                 
                 <!--Column-->
-                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0ms">
+                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn animated" data-wow-duration="0ms">
                     <div class="item">
                         <div class="icon"><i class="icon-people3"></i></div>
-                        <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="347">0</span></div>
+                        <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="<?=$facts['environmentalists']?>">0</span></div>
                         <h4 class="counter-title">Environmentalists</h4>
                     </div>
                 </article>
                 
                 <!--Column-->
-                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="0ms">
+                <article class="column counter-column col-md-3 col-sm-6 col-xs-12 wow fadeIn animated" data-wow-duration="0ms">
                     <div class="item">
                         <div class="icon"><i class="icon-animals"></i></div>
-                        <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="475">0</span>+</div>
+                        <div class="count-outer"><span class="count-text" data-speed="3000" data-stop="<?=$facts['blogs']?>">0</span>+</div>
                         <h4 class="counter-title">Evnironmental Blogs</h4>
                     </div>
                 </article>
@@ -115,17 +115,22 @@
                 <div class="item clearfix">
                     <figure class="img-box">
                         <?php
-                            $image = !empty($spot['Spot']['photo']) ? '../uploads/'.$spot['Spot']['photo'] : 'blog/11.jpg';
-                            echo $this->HTML->image($image);
+                            $image = !empty($spot['Spot']['photo']) ? 'uploads/'.$spot['Spot']['photo'] : 'uploads/no-image.jpg';
+                            echo $this->Image->crop($image,400,300);
                         ?>
-                        <div class="overlay"><div class="inner-box"><div class="content-box"><button class="thm-btn style-2 donate-box-btn">Explore</button></div></div></div>
+                        <div class="overlay"><div class="inner-box"><div class="content-box">
+                            <a class="thm-btn style-2 donate-box-btn" href="<?=$this->HTML->url('/spot/'.$spot['Spot']['slug'])?>">
+                                Explore Spot
+                            </a>
+                        </div></div></div>
                     </figure>
-                    <div class="content">
-                        <div class="text center">
-                            <a href="#"><h4 class="title"><?=$spot['Spot']['name']?></h4></a>
-                            <p><?=$spot['Spot']['excerpt']?></p>
+                    <a class = "full-width text-center" href="<?=$this->HTML->url('/spot/'.$spot['Spot']['slug'])?>"><h4 class="title"><?=$spot['Spot']['name']?></h4>
+                        <div class="content">
+                            <div class="text center">
+                                <p><?=$spot['Spot']['excerpt']?></p>
+                            </div>   
                         </div>   
-                    </div>                        
+                    </a>                     
                 </div>
             <?php endforeach;?>
             
@@ -222,15 +227,16 @@
                         <figure class="img-holder">
                             <a href="<?php echo $this->HTML->url('/blog/'.$blog['Blog']['slug']);?>">
                                 <?php
-                                    $image = !empty($bog['Blog']['photo']) ? '../uploads/'.$bog['Blog']['photo'] : 'blog/11.jpg';
-                                    echo $this->HTML->image($image);
+                                    $image = !empty($blog['Blog']['photo']) ? 'uploads/'.$blog['Blog']['photo'] : 'uploads/no-image.jpg';
+                                    echo $this->Image->crop($image,400,300);   
                                 ?>
                             </a>
                             <div class="date"><?php echo $this->Eco->getHumanDate($blog['Blog']['created']);?></div>
                         </figure>
-                        <a class="full-width" href="<?php echo $this->HTML->url('/blog/'.$blog['Blog']['slug']);?>"><h4><?php echo $blog['Blog']['name'];?></h4>
+                        <a class="full-width" href="<?php echo $this->HTML->url('/blog/'.$blog['Blog']['slug']);?>">
+                            <h4 class="title"><?php echo $blog['Blog']['name'];?></h4>
                             <div class="lower-content">
-                               <div class="post-meta">By <?php echo $blog['User']['name'];?></div>
+                               <div class="post-meta">By <?php echo $blog['Blog']['author'];?></div>
                                     <div class="text">
                                         <?php echo $this->Eco->excerpt($blog['Blog']['excerpt']);?>               
                                     </div>                        

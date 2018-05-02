@@ -48,6 +48,7 @@ class Event extends AppModel {
 	);
 		
 	protected $_displayFields = array(
+		'photo',
 		'name',
 		'Spot.name' => ['label' => 'Spot'],
 		'date',
@@ -59,6 +60,7 @@ class Event extends AppModel {
         'name',
         'excerpt',
         'description',
+        'photo',
         'date'
     );
 

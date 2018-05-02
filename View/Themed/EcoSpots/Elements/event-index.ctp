@@ -48,9 +48,9 @@
                         <div class="img-column float_left">
                             <figure class="img-holder">
                                 <?php
-                                    $image = !empty($event['Event']['photo']) ? '../uploads/'.$event['Event']['photo'] : 'blog/11.jpg';
+                                    $image = !empty($event['Event']['photo']) ? 'uploads/'.$event['Event']['photo'] : 'uploads/no-image.jpg';
                                 ?>
-                                <a href="<?php echo $this->HTML->url('/event/'.$event['Event']['slug']);?>"><?php echo $this->HTML->image($image);?></a>
+                                <a href="<?php echo $this->HTML->url('/event/'.$event['Event']['slug']);?>"><?php echo $this->Image->crop($image,400,300);?></a>
                                 <div class="date">
                                     <?php echo $this->Eco->getHumanDate($event['Event']['date']);?>
                                 </div>

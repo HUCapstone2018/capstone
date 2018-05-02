@@ -142,7 +142,7 @@ class EcospotsSchema extends CakeSchema {
         'ar_description' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
         
         'author' => array('type' => 'string', 'length' => 255 ,'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
-        'reference' => array('type' => 'string', 'length' => 255 ,'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
+        'reference' => array('type' => 'text','null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
         'weight' => array('type'=>'integer','null'=>true,'default'=>null),
         'user_id' => array('type'=>'integer','null'=>true,'default' => null),
         // Database stuff

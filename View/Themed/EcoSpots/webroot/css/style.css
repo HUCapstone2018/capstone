@@ -8671,6 +8671,45 @@ a .text
   color: grey;
 }
 
+.ecospots-button:hover
+{
+  background: #8dc63f;
+  color: white;
+}
+
+a.green-link,
+a.green-link i
+{
+  color: #8dc63f;
+}
+
+a.full-width .title
+{
+  padding-top: 10px;
+}
+
+.blog-view .inner-banner
+{
+  background: #8dc63f;
+}
+
+.lower-content .date
+{
+  margin-top: 20px;
+}
+
+.lower-content
+{
+  padding-bottom: 20px;
+}
+
+#spotMap
+{
+  margin-top: 50px;
+  height: 300px;
+  background: #dcdcdc;
+}
+
 @media screen and (max-width: 990px)
 {
     .form-grp-inline

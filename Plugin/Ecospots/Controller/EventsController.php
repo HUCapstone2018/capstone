@@ -80,6 +80,8 @@ class EventsController extends AppController {
 		$editFieldsNew['spot_id']['options'] = $this->Spot->find('list',[
 			'fields' => ['id','name']
 		]);
+
+		$editFieldsNew['date']['class'] = 'inline';
 		
 		$this->set('editFields', $editFieldsNew);
 	}

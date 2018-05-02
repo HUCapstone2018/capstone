@@ -23,6 +23,17 @@ CroogoNav::add('sidebar', 'settings', array(
 			),
 			'weight' => 10,
 		),
+		'facts' => array(
+			'title' => __d('croogo', 'Facts'),
+			'url' => array(
+				'admin' => true,
+				'plugin' => 'settings',
+				'controller' => 'settings',
+				'action' => 'prefix',
+				'Fact',
+			),
+			'weight' => 10,
+		),
 		'social' => array(
 			'title' => __d('croogo', 'Social'),
 			'url' => array(

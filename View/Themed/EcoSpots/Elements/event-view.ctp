@@ -68,18 +68,6 @@
                         <div class="text">
                             <?php echo $event['Event']['description'];?>
                         </div>
-                        
-                        <div class="outer-box">
-                            <div class="post-author">
-                                <div class="inner-box">
-                                    <figure class="author-thumb">
-                                        <?php echo $this->HTML->image('blog/author2.jpg');?>
-                                    </figure>
-                                    <h4><?php echo $event['User']['name'];?></h4>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>

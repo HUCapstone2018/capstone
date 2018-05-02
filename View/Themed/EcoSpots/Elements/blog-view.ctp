@@ -22,7 +22,7 @@
     $crumbs = explode('#$%', $breadCrumbs);
 ?>
 <div class="blog-view">
-<div class="inner-banner has-base-color-overlay text-center" style="background: url(images/background/4.jpg);">
+<div class="inner-banner has-base-color-overlay text-center">
     <div class="container">
         <div class="box">
             <h1><?php echo $blog['Blog']['name'];?></h1>
@@ -92,10 +92,9 @@
 
                             <div class="post-author">
                                 <div class="inner-box">
-                                    <figure class="author-thumb">
-                                        <?php echo $this->HTML->image('blog/author2.jpg');?>
-                                    </figure>
-                                    <h4><?php echo $blog['User']['name'];?></h4>
+                                    <h4><?php echo $blog['Blog']['author'];?></h4>
+                                    <h5>References</h5>
+                                    <?php echo $this->Eco->iterateLinks($blog['Blog']['reference']);?>
                                 </div>
                             </div>
                             

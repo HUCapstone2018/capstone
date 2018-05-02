@@ -48,18 +48,17 @@
                         <article class="row default-blog-news wow fadeInUp animated animated" style="visibility: visible; animation-name: fadeInUp;">
                             <figure class="img-holder col-md-4 col-sm-4">
                                 <?php
-                                    $image = !empty($blog['Blog']['photo']) ? '../uploads/'.$blog['Blog']['photo'] : 'blog/11.jpg';
+                                    $image = !empty($blog['Blog']['photo']) ? 'uploads/'.$blog['Blog']['photo'] : 'uploads/no-image.jpg';
                                 ?>
-                                <a href="<?php echo $this->HTML->url('/blog/'.$blog['Blog']['slug']);?>"><?php echo $this->HTML->image($image);?></a>
-
+                                <a href="<?php echo $this->HTML->url('/blog/'.$blog['Blog']['slug']);?>"><?php echo $this->Image->crop($image,400,300);?></a>
                             </figure>
 
                             <div class="lower-content col-md-8 col-sm-8">
                             
-                                <div class="post-meta">By <?php echo $blog['User']['name'];?></div>
+                                <div class="post-meta">By <?php echo $blog['Blog']['author'];?></div>
                                 <a href="<?php echo $this->HTML->url('/blog/'.$blog['Blog']['slug']);?>"><h4><?php echo $blog['Blog']['name'];?></h4></a>
                                 <div class="text">
-                                    <?php echo implode(' ', array_slice(explode(' ', $blog['Blog']['excerpt']), 0, 100));?>               
+                                    <?php echo $this->Eco->excerpt($blog['Blog']['excerpt']);?>               
                                 </div>
 
                                 <div class="date"><?php echo $this->Eco->getHumanDate($blog['Blog']['created']);?></div>

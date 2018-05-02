@@ -27,6 +27,7 @@
 			'responsive',
 			'owl.carousel',
 			'custom',
+			'icomoon',
 			'style',
 			'settings'
 		]);

@@ -640,8 +640,15 @@ class NodesController extends NodesAppController {
 			'limit' => 4
 		]);
 
+		$facts = array();
+		$facts['spots'] = $this->Spot->find('count');
+		$facts['blogs'] = $this->Blog->find('count'); 
+		$facts['funds'] = Configure::read('Fact.funds');
+		$facts['environmentalists'] = Configure::read('Fact.environmentalists');
+		// debug($facts);exit;
+
 		$node = $this->Node->findBySlug('home');
-		$this->set(compact('node','spots','events','blogs'));
+		$this->set(compact('node','spots','events','blogs','facts'));
 	}
 
 /**

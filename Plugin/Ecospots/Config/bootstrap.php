@@ -315,15 +315,15 @@ CroogoNav::add('Spots', array(
             )
         ),
 
-        'list_reviews' => array(
-            'title' => __d('croogo', 'Reviews'),
-            'url' => array(
-                'admin' => true,
-                'plugin' => 'ecospots',
-                'controller' => 'reviews',
-                'action' => 'index',
-            )
-        ),
+        // 'list_reviews' => array(
+        //     'title' => __d('croogo', 'Reviews'),
+        //     'url' => array(
+        //         'admin' => true,
+        //         'plugin' => 'ecospots',
+        //         'controller' => 'reviews',
+        //         'action' => 'index',
+        //     )
+        // ),
 
         'list_activities' => array(
             'title' => __d('croogo', 'Activities'),

@@ -21,11 +21,11 @@ $events = $this->requestAction([
                                 <div class="footer-widget about-column">
                                     <figure class="footer-logo"><a href="index.html"><img src="images/logo/logo2.png" alt=""></a></figure>
                                     
-                                    <div class="text"><p>When you give to us you know your donation is making a diffe. </p> </div>
+                                    <div class="text"><p><?=Configure::read('Site.tagline')?></p> </div>
                                     <ul class="contact-info">
-                                        <li><span class="icon-signs"></span>22/121 Apple Street, New York, <br>NY 10012, USA</li>
-                                        <li><span class="icon-phone-call"></span> Phone: +123-456-7890</li>
-                                        <li><span class="icon-note"></span>Supportus@Eco greenteam.com</li>
+                                        <li><span class="icon-signs"></span><?=Configure::read('Site.address')?></li>
+                                        <li><span class="icon-phone-call"></span> Phone: <?=Configure::read('Site.phone')?></li>
+                                        <li><span class="icon-note"></span><?=Configure::read('Site.email')?></li>
                                     </ul>
                                 </div>
                             </div>
