@@ -22,7 +22,7 @@
     $crumbs = explode('#$%', $breadCrumbs);
 ?>
 <div class="blog-view">
-<div class="inner-banner has-base-color-overlay text-center" style="background: url(images/background/4.jpg);">
+<div class="inner-banner has-base-color-overlay text-center">
     <div class="container">
         <div class="box">
             <h1><?php echo $event['Event']['name'];?></h1>
@@ -59,7 +59,7 @@
                             ?>
                         </figure>
                         <div class="lower-content">
-                            <div class="date"><?php echo date("F jS, Y", strtotime($event['Event']['date']));?></div>
+                            <div class="date"><?php echo $this->Eco->getHumanDate($event['Event']['date']);?></div>
                                                         
                             <h4><?php echo $event['Event']['name'];?></h4>
                         </div>
@@ -68,6 +68,17 @@
                         <div class="text">
                             <?php echo $event['Event']['description'];?>
                         </div>
+                    </div>
+
+                    <div>
+                        This event will take place at <?php
+                            echo $this->HTML->link($event['Spot']['name'],[
+                                'plugin' => 'ecospots',
+                                'controller' => 'spots',
+                                'action' => 'view',
+                                'slug' => $event['Spot']['slug']
+                            ]);
+                        ?>
                     </div>
 
                 </div>

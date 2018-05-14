@@ -63,6 +63,18 @@ CroogoRouter::connect('/spot/:slug', array(
 	'action' => 'view'
 ));
 
+CroogoRouter::connect('/animal-life', array(
+	'plugin' => 'ecospots',
+	'controller' => 'animals',
+	'action' => 'index'
+));
+
+CroogoRouter::connect('/plant-life', array(
+	'plugin' => 'ecospots',
+	'controller' => 'plants',
+	'action' => 'index'
+));
+
 CroogoRouter::routes();
 Router::parseExtensions();
 Router::setExtensions(array('json', 'rss'));

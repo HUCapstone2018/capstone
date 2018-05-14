@@ -4,7 +4,7 @@
 	<div class="footer-content">
 	<?php
 		$link = $this->Html->link(
-			__d('croogo', Configure::read("Site.title").' %s', strval(Configure::read('Croogo.version'))),
+			__d('croogo', Configure::read("Site.title")),
 			'http://www.croogo.org'
 		);
 	?>

@@ -59,7 +59,7 @@
                             ?>
                         </figure>
                         <div class="lower-content">
-                            <div class="date"><?php echo date("F jS, Y", strtotime($blog['Blog']['created']));?></div>
+                            <div class="date"><?php echo $this->Eco->getHumanDate($blog['Blog']['created']);?></div>
                                                         
                             <h4><?php echo $blog['Blog']['name'];?></h4>
                         </div>

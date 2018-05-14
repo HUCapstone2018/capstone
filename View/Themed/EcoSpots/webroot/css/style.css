@@ -8686,6 +8686,12 @@ a.green-link i
 a.full-width .title
 {
   padding-top: 10px;
+  text-transform: capitalize;
+}
+
+.caps-title
+{
+  text-transform: capitalize;
 }
 
 .blog-view .inner-banner
@@ -8708,6 +8714,52 @@ a.full-width .title
   margin-top: 50px;
   height: 300px;
   background: #dcdcdc;
+}
+
+#distributionMap
+{
+  min-height: 600px;
+}
+
+
+.ecospots-logo {
+  max-height: 55px;
+}
+
+.theme_menu
+{
+  padding: 15px 0;
+}
+
+.ecospots-logo-link
+{
+  max-width: calc(100% - 59px);
+}
+
+
+
+#mainNavbar li .dropdown
+{
+  display: none;
+}
+
+#mainNavbar li:hover .dropdown,
+#mainNavbar li:focus .dropdown
+{
+  position: absolute;
+  display: block;
+}
+
+.service a
+{
+  color: #303030;
+}
+
+.not-found
+{
+  padding: 10px;
+  text-align: center;
+  color: #dcdcdc;
 }
 
 @media screen and (max-width: 990px)
@@ -8743,6 +8795,49 @@ a.full-width .title
     .natural-reserve-msg
     {
       text-align: center;
+    }
+
+    #mainNavbar .menuzord-menu > li
+    {
+      float: none;
+      display: block;
+      width: 100%;
+    }
+
+    .menuzord-menu
+    {
+      float: none;
+      width: 100%;
+    }
+
+    .menuzord-menu li .dropdown
+    {
+      position: relative;
+      display: block;
+      float: none;
+      width: 100%;
+      margin: 0;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .menuzord-menu ul.dropdown li a
+    {
+      color: white;
+      background: #303030;
+    }
+
+    #mainNavbar li:hover .dropdown,
+    #mainNavbar li:focus .dropdown
+    {
+      position: relative;
+      display: block;
+    }
+
+    #mainNavbar .menuzord-menu > li
+    {
+      position: relative;
+      overflow: auto;
     }
 }
 

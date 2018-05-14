@@ -9,11 +9,13 @@ $(document).ready(function(){
     initOwls();
     initRevSlider();
     initFactCounter();
+    
+    initSearchModal();
     spotsSearchWidget();
-    initGoogleMap();
-    $("#searchModalInput").keyup(function(e){
-        searchModal();
-    });
+    aninmalsSearchWidget();
+    plantsSearchWidget();
+
+    initGoogleMaps();
 });
 
 // instance of fuction while Window Scroll event
@@ -35,6 +37,18 @@ function themeMenu() {
     if ($("#main_menu").length) {
         $("#main_menu").menuzord({
             animation: "zoom-out"
+        });
+
+        $("#mainNavbar ul.navbar-nav").supersubs({
+            minWidth:    12,                                // minimum width of sub-menus in em units
+            maxWidth:    27,                                // maximum width of sub-menus in em units
+            extraWidth:  1                                  // extra width can ensure lines don't sometimes turn over
+        }).superfish({
+            delay:       400,                               // delay on mouseout
+            animation:   {opacity:'show',height:'show'},    // fade-in and slide-down animation
+            speed:       'fast',                            // faster animation speed
+            autoArrows:  false,                             // disable generation of arrow mark-up
+            dropShadows: false                              // disable drop shadows
         });
     }
 }
@@ -80,38 +94,91 @@ function scrollToTop() {
 
 
 
-function searchModal() 
+function initSearchModal() 
 {
-    var input, filter, container, searchResult;
-
-    input = document.getElementById("searchModalInput");
-    filter = input.value.toUpperCase();
-    container = document.getElementById("searchResultsContainer");
-    searchResult = container.getElementsByClassName("search-result");
-
-    for (i = 0; i < searchResult.length; i++) 
+    if($("#searchModalInput").length)
     {
-        if (searchResult[i].innerHTML.toUpperCase().indexOf(filter) > -1) 
-            searchResult[i].style.display = "";
-        else 
-            searchResult[i].style.display = "none";        
+        $("#searchModalInput").keyup(function(e){
+            var input, filter, container, searchResult;
+
+            input = document.getElementById("searchModalInput");
+            filter = input.value.toUpperCase();
+            container = document.getElementById("searchResultsContainer");
+            searchResult = container.getElementsByClassName("search-result");
+
+            for (i = 0; i < searchResult.length; i++) 
+            {
+                if (searchResult[i].innerHTML.toUpperCase().indexOf(filter) > -1) 
+                    searchResult[i].style.display = "";
+                else 
+                    searchResult[i].style.display = "none";        
+            }
+        });
     }
 }
 
 function spotsSearchWidget()
 {
-    $("#spotReserveBox").change(function(){
-        if($(this).is(":checked"))
-            location.href = Croogo.basePath+"ecospots/spots/index/natural-reserve:yes";
-        else
-            location.href = Croogo.basePath+"spots";
-    });
+    if ($('#spotReserveBox').length) 
+    {
+        $("#spotReserveBox").change(function(){
+            if($(this).is(":checked"))
+                location.href = Croogo.basePath+"ecospots/spots/index/natural-reserve:yes";
+            else
+                location.href = Croogo.basePath+"spots";
+        });
 
-    $("#spotNameButton").click(function(){
-        var name = $.trim($("#spotNameBox").val());
-        if(name.length != 0)
-            location.href = Croogo.basePath+"ecospots/spots/index/name:"+name;
-    });
+        $("#spotNameButton").click(function(){
+            var name = $.trim($("#spotNameBox").val());
+            if(name.length != 0)
+                location.href = Croogo.basePath+"ecospots/spots/index/name:"+name;
+        });
+    }
+}
+
+function plantsSearchWidget()
+{
+    if ($('#plantDangerBox').length) 
+    {
+        $("#plantDangerBox").change(function(){
+            if($(this).is(":checked"))
+                location.href = Croogo.basePath+"ecospots/plants/index/in-danger:yes";
+            else
+                location.href = Croogo.basePath+"plant-life";
+        });
+
+        $("#plantNameButton").click(function(){
+            var name = $.trim($("#plantNameBox").val());
+            if(name.length != 0)
+                location.href = Croogo.basePath+"ecospots/plants/index/name:"+name;
+        });
+    }
+}
+
+function aninmalsSearchWidget()
+{
+    if ($('#animalDangerBox').length) 
+    {
+        $("#animalDangerBox").change(function(){
+            if($(this).is(":checked"))
+                location.href = Croogo.basePath+"ecospots/animals/index/in-danger:yes";
+            else
+                location.href = Croogo.basePath+"animal-life";
+        });
+
+        $("#animalMarineBox").change(function(){
+            if($(this).is(":checked"))
+                location.href = Croogo.basePath+"ecospots/animals/index/marine:yes";
+            else
+                location.href = Croogo.basePath+"animal-life";
+        });
+
+        $("#animalNameButton").click(function(){
+            var name = $.trim($("#animalNameBox").val());
+            if(name.length != 0)
+                location.href = Croogo.basePath+"ecospots/animals/index/name:"+name;
+        });
+    }
 }
 
 function initOwls()
@@ -173,7 +240,7 @@ function initRevSlider () {
                 } 
             }, 
             gridwidth: [1200,],
-            gridheight: [790,],
+            gridheight: [500,],
             lazyType: "none",
             parallax: {
                 type: "mouse",
@@ -233,7 +300,7 @@ function initFactCounter() {
     }
 }
 
-function initGoogleMap()
+function initGoogleMaps()
 {
      if($('#spotMap').length)
      {
@@ -245,6 +312,29 @@ function initGoogleMap()
               position: {lat: latitude, lng: longitude},
               map: map
             });
+        })
+     }
+
+     if($('#distributionMap').length)
+     {
+        $.getScript("https://maps.googleapis.com/maps/api/js?key="+API_KEY, function(){
+            var mapCanvas = document.getElementById("distributionMap");
+            options.center = new google.maps.LatLng(33.897083, 35.492364); // HU is center
+            var map = new google.maps.Map(mapCanvas, options);
+            console.log(markers);
+            for(var i = 0; i < markers.length; i++)
+            {
+                var marker = markers[i];
+
+                new google.maps.Marker({
+                  position: {
+                    lat: marker.latitude, 
+                    lng: marker.longitude
+                  },
+                  label: marker.spot,
+                  map: map
+                });
+            }
         })
      }
 }

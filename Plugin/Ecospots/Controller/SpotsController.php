@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  * @category Controller
  * @package  Croogo
  * @version  1.0
- * @author   Ayman Hamdoun <aymanhamdoun@outlook.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -23,13 +23,7 @@ class SpotsController extends AppController {
  * @access public
  */
 	public $name = 'Spots';
-	
-/**
- * Models used by the Controller
- *
- * @var array
- * @access public
- */
+
 	public $uses = array('Ecospots.Spot','Ecospots.Plant','Ecospots.Animal','Ecospots.Activity','Maps.Map');
 
 	public $helpers = array('Eco','Paginator'=>['className'=>'CroogoPaginator']);
@@ -48,6 +42,7 @@ class SpotsController extends AppController {
 		),
 	);
 
+
 /**
  * Admin index
  *
@@ -57,14 +52,21 @@ class SpotsController extends AppController {
 	public function admin_index() {
 		$this->set('title_for_layout', __('List of Spots'));
 
-		$this->Spot->recursive = 0;
-		$this->paginate = array('limit' => 30);
+		$this->Prg->commonProcess();
+		
+		$searchFields = array('reserve' => ['label' => 'is natural reserve'],'name');
 
-        $Spots = $this->paginate();
+		$criteria = $this->Spot->parseCriteria($this->Prg->parsedParams());
+
+		$this->Spot->recursive = 0;
+		$this->paginate['limit'] = 15;
+		$this->paginate['conditions'] = $criteria;
+
 				
-		$this->set('spots',$Spots);
-		$displayFieldsNew = $this->Spot->displayFields();
-		$this->set('displayFields', $displayFieldsNew);
+		$this->set('spots',$this->paginate());
+		$this->set('searchFields', $searchFields);
+		
+		$this->set('displayFields', $this->Spot->displayFields());
 		$this->set('isSortable', $this->issortable);
 	}
 
@@ -107,11 +109,7 @@ class SpotsController extends AppController {
 		$this->Spot->recursive = 2;
 
 		$editFields = $this->Spot->editFields();
-		// $editFields['spot_id']['options'] = $this->Spot->find('list',[
-		// 	'fields' => ['id','name']
-		// ]);
-		// $editFields['spot_id']['empty'] = true;
-		// debug($editFields['spot_id']);exit;
+	
 		if (!$id && empty($this->request->data)) {
 			$this->Session->setFlash(__('Invalid Spot'), 'default', array('class' => 'error'));
 			$this->redirect(array('action' => 'index'));
@@ -164,6 +162,7 @@ class SpotsController extends AppController {
 	public function index()
 	{
 		$this->set('title_for_layout', __('Spots Index'));
+
 		if(isset($this->request->params['named']['activity']))
 		{
 			$slug = $this->request->params['named']['activity'];
@@ -188,6 +187,54 @@ class SpotsController extends AppController {
 			);
 		}
 
+		if(isset($this->request->params['named']['animal']))
+		{
+			$slug = $this->request->params['named']['animal'];
+			
+			$this->paginate['conditions'] = [
+				'Animal.slug' => $slug
+			];
+
+			$this->paginate['joins'] = array(
+			    array(
+			    	'table' => 'animals_spots',
+			        'alias' => 'AnimalsSpot',
+			        'type' => 'inner',
+			        'conditions' => '`Spot`.`id` = `AnimalsSpot`.`spot_id`'
+			    ),
+			    array(
+			    	'table' => 'animals',
+			        'alias' => 'Animal',
+			        'type' => 'inner',
+			        'conditions' => '`AnimalsSpot`.`animal_id` = `Animal`.`id`'
+			    )
+			);
+		}
+
+		if(isset($this->request->params['named']['plant']))
+		{
+			$slug = $this->request->params['named']['plant'];
+			
+			$this->paginate['conditions'] = [
+				'Plant.slug' => $slug
+			];
+
+			$this->paginate['joins'] = array(
+			    array(
+			    	'table' => 'plants_spots',
+			        'alias' => 'PlantsSpot',
+			        'type' => 'inner',
+			        'conditions' => '`Spot`.`id` = `PlantsSpot`.`spot_id`'
+			    ),
+			    array(
+			    	'table' => 'plants',
+			        'alias' => 'Plant',
+			        'type' => 'inner',
+			        'conditions' => '`PlantsSpot`.`plant_id` = `Plant`.`id`'
+			    )
+			);
+		}
+
 		if(isset($this->request->params['named']['name']))
 		{
 			$name = $this->request->params['named']['name'];
@@ -203,7 +250,7 @@ class SpotsController extends AppController {
 			];
 		}
 
-		$this->paginate['limit'] = 9;
+		$this->paginate['limit'] = Configure::read("Reading.Spots");
 		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
 
 		$spots = $this->paginate('Spot');

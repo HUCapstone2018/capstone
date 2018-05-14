@@ -7,6 +7,10 @@ $this->Html
 	->addCrumb(__d('croogo', 'Extensions'), array('plugin' => 'extensions', 'controller' => 'extensions_plugins', 'action' => 'index'))
 	->addCrumb(__d('croogo', 'Themes'), '/' . $this->request->url);
 
+
+		unset($themes['default']);
+		unset($themesData['default']);
+		//debug($themesData);exit;
 ?>
 <h2 class="hidden-desktop"><?php echo $title_for_layout; ?></h2>
 

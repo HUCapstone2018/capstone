@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  * @category Controller
  * @package  Croogo
  * @version  1.0
- * @author   Fahad Ibnay Heylaal <Plant@fahad19.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -33,20 +33,11 @@ class PlantsController extends AppController {
  */
 	public $uses = array('Ecospots.Plant');
 	
+	public $helpers = array('Eco','Paginator'=>['className'=>'CroogoPaginator']);
+	
 	public $isSortable = true;
 
-	public $components = array(
-		'Paginator',
-		'Search.Prg' => array(
-			'presetForm' => array(
-				'paramType' => 'querystring',
-			),
-			'commonProcess' => array(
-				'paramType' => 'querystring',
-				'filterEmpty' => true,
-			),
-		),
-	);
+
 
 /**
  * Admin index
@@ -109,8 +100,8 @@ class PlantsController extends AppController {
 		}
 		if (!empty($this->request->data)) {
 			
+			$this->request->data['Plant']['slug'] = Inflector::slug(strtolower($this->request->data['Plant']['name']),"-");
 			if ($this->Plant->save($this->request->data)) {
-				//$Plant_type = $this->request->data['Plant']['type'];
 				$this->Session->setFlash(__('The Plant has been saved'), 'default', array('class' => 'success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -188,43 +179,30 @@ class PlantsController extends AppController {
  * @return void
  * @access public
  */
-	public function index() {
-		$Plants = $this->Plant->find("all", 
-										array(
-											'order' => "Plant.weight ASC",
-											'limit' => 40
-										));
+	public function index()
+	{
+		$this->set('title_for_layout', __('Plants Index'));
 
-		$this->set("Plants", $Plants);
+		if(isset($this->request->params['named']['in-danger']))
+		{
+			$danger = $this->request->params['named']['in-danger'];
+
+			$this->paginate['conditions']['Plant.danger'] = $danger;
+		}
+
+		if(isset($this->request->params['named']['name']))
+		{
+			$name = $this->request->params['named']['name'];
+
+			$this->paginate['conditions']['Plant.name LIKE'] = '%'.$name.'%';
+		}
+
+		$this->paginate['limit'] = Configure::read("Reading.Plants");
+		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
+
+		$plants = $this->paginate('Plant');
+
+		$this->set(compact('plants'));
 	}
 	
-	public function view($id){
-		if(empty($id)){
-				$this->Session->setFlash(__('No Plant was specified.'), 'default', array('class' => 'error'));
-				$this->redirect(array('action' => 'index'));
-		}
-		
-		$this->Plant->recursive = 1;
-		$this->Plant->id = $id;
-		$this->set('Plant', $this->paginate());
-		
-		
-	}
-
-	public function Plants_json()
-	{
-		$this->layout = "blank";
-		$Plants = $this->Plant->find('all');
-		$this->set('Plants',json_encode($Plants));
-	}
-
-	public function Plant_json($id)
-	{
-		if(!$id) return "";
-
-		$this->layout = "blank";
-		$Plant = $this->Plant->findById($id);
-		$this->set('Plant',json_encode($Plant));
-	}
-
 }

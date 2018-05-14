@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @category Model
  * @package  Croogo
  * @version  1.0
- * @author   Avo Sarafian <avo.sarafian@ogilvy.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -29,11 +29,11 @@ class Spot extends AppModel {
  * @var string
  * @access public
  */
-	public $order = 'Spot.id DESC';
+	public $order = 'Spot.id DESC'; 
 
-	public $belongsTo = ["Map"];
+	public $belongsTo = ["Map"]; //belongs to one spot has only 1 map
 
-    public $hasAndBelongsToMany = array(
+    public $hasAndBelongsToMany = array(    //many to many
         'Animal' => array(
             'className' => 'Animal',
         ),
@@ -50,13 +50,21 @@ class Spot extends AppModel {
  * @var array
  * @access public
  */
-	public $actsAs = array(
+	public $actsAs = array( //behavior
         'Containable',
 		'Croogo.Ordered' => array(
 			'field' => 'weight',
 			'foreign_key' => false,
 		),
+        'Search.Searchable'
 	);
+
+    public $filterArgs = array(
+        'q' => array('type' => 'query', 'method' => 'filterSpots'),
+        'filter' => array('type' => 'query', 'method' => 'filterSpots'),
+        'name' => array('type' => 'like'),
+        'reserve' => array('type' => 'like')
+    );
 
     protected $_displayFields = array(
         'photo',
@@ -75,5 +83,18 @@ class Spot extends AppModel {
         'reserve' => ['label' => 'is a Natural Reserve'],
         'featured' => ['label' => 'Featured on Homepage']
     );
+
+    public function filterSpots($data = array()) {
+        $conditions = array();
+        if (!empty($data['filter'])) {
+            $filter = '%' . $data['filter'] . '%';
+            $conditions = array(
+                'OR' => array(
+                    $this->alias . '.name LIKE' => $filter,
+                ),
+            );
+        }
+        return $conditions;
+    }
 
 }

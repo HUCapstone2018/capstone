@@ -24,7 +24,7 @@ $this->append('tab-heading');
 	];
 	
 	echo $this->Croogo->adminTab(__d('blog',"Blog"), '#blog');
-    echo $this->Croogo->adminTab(__d('blog',$arabicTabs[$modelClass]), '#arabic');
+    //echo $this->Croogo->adminTab(__d('blog',$arabicTabs[$modelClass]), '#arabic');
 
 	echo $this->Croogo->adminTabs();
 $this->end();

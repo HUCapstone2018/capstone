@@ -31,7 +31,7 @@ $this->append('form-start', $this->Form->create($modelClass));
 
 $this->append('tab-heading');
     echo $this->Croogo->adminTab(__d('spot',$modelClass), '#spot');
-    echo $this->Croogo->adminTab(__d('spot',$arabicTabs[$modelClass]), '#arabic');
+    //echo $this->Croogo->adminTab(__d('spot',$arabicTabs[$modelClass]), '#arabic');
     echo $this->Croogo->adminTabs();
 $this->end();
 

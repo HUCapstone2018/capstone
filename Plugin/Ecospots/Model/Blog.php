@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @category Model
  * @package  Croogo
  * @version  1.0
- * @author   
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */

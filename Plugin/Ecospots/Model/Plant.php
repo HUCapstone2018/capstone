@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @category Model
  * @package  Croogo
  * @version  1.0
- * @author   Ayman Hamdoun <aymanhamdoun@outlook.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -70,7 +70,7 @@ class Plant extends AppModel {
     );
 
     protected $_displayFields = array(
-        'photo',
+        //'photo',
         'name',
         'danger' => array('label' => 'In Danger'),
         'created'

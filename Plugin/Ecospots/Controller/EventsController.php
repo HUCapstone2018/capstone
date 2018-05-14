@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  * @category Controller
  * @package  Croogo
  * @version  1.0
- * @author   Ayman Hamdoun <aymanhamdoun@outlook.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -164,7 +164,7 @@ class EventsController extends AppController {
 		}
 
 		$this->paginate['contain'] = ['User'];
-		$this->paginate['limit'] = 5;
+		$this->paginate['limit'] = Configure::read("Reading.Events");
 		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
 		$events = $this->paginate('Event');
 		

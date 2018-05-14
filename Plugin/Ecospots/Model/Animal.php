@@ -10,7 +10,7 @@ App::uses('AppModel', 'Model');
  * @category Model
  * @package  Croogo
  * @version  1.0
- * @author   
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -70,18 +70,20 @@ class Animal extends AppModel {
 	);
 	
 		
-	protected $_displayFields = array(
-		'photo',
+	protected $_displayFields = array(	
 		'name',
+		'marine' => array('label' => 'Is Marine Life'),
 		'danger' => array('label' => 'In Danger'),
 		'created'
 	);
+
 
     protected $_editFields = array(
         'id',
         'name',
         'description',
         'photo',
+        'marine' => array('label' => 'Is Marine Life'),
         'danger' => array('label' => 'In Danger')
     );
 

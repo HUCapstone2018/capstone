@@ -16,7 +16,8 @@ class EcospotsSchema extends CakeSchema {
 		'description' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
         'ar_description' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
         'danger' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
-		'weight' => array('type'=>'integer','null'=>true,'default'=>null),
+		'marine' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+        'weight' => array('type'=>'integer','null'=>true,'default'=>null),
 
         // Database stuff
 		'updated' => array('type' => 'datetime', 'null' => true),

@@ -46,14 +46,19 @@
         "level": 1
     },
     "Meta": {
-        "description": "Croogo - A CakePHP powered Content Management System",
+        "description": "EcoSpots - A Lebanese Environmental Atlas",
         "generator": "Croogo - Content Management System",
-        "keywords": "croogo, Croogo",
+        "keywords": "ecospots, lebanon, environment, nature, atlas",
         "robots": "index, follow"
     },
     "Reading": {
         "date_time_format": "D, M d Y H:i:s",
-        "nodes_per_page": 5
+        "nodes_per_page": 5,
+        "Spots": 9,
+        "Blogs": 5,
+        "Events": 5,
+        "Animals": 12,
+        "Plants": 12
     },
     "Service": {
         "akismet_key": "your-key",

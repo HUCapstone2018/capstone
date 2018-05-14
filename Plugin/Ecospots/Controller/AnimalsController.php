@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  * @category Controller
  * @package  Croogo
  * @version  1.0
- * @author   Ayman Hamdoun <aymanhamdoun@outlook.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -32,7 +32,10 @@ class AnimalsController extends AppController {
  */
 	public $uses = array('Ecospots.Animal');
 	
+	public $helpers = array('Eco','Paginator'=>['className'=>'CroogoPaginator']);
+
 	public $issortable = true;
+
 
 /**
  * Admin index
@@ -75,7 +78,7 @@ class AnimalsController extends AppController {
 			}
 		}
 		$editFieldsNew = $this->Animal->editFields();
-		debug($editFieldsNew);exit;
+		
 		$this->set('editFields', $editFieldsNew);
 	}
 
@@ -94,7 +97,7 @@ class AnimalsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->request->data)) {
-			
+			$this->request->data['Animal']['slug'] = Inflector::slug(strtolower($this->request->data['Animal']['name']),"-");
 			if ($this->Animal->save($this->request->data)) {
 				$this->Session->setFlash(__('The Team Animal has been saved'), 'default', array('class' => 'success'));
 				$this->redirect(array('action' => 'index'));
@@ -164,5 +167,38 @@ class AnimalsController extends AppController {
 	
 		$this->redirect(array('action' => 'index'));
 		
+	}
+
+	public function index()
+	{
+		$this->set('title_for_layout', __('Animals Index'));
+		if(isset($this->request->params['named']['marine']))
+		{
+			$marine = $this->request->params['named']['marine'];
+
+			$this->paginate['conditions']['AND']['Animal.marine'] = $marine;
+
+		}
+
+		if(isset($this->request->params['named']['in-danger']))
+		{
+			$danger = $this->request->params['named']['in-danger'];
+
+			$this->paginate['conditions']['AND']['Animal.danger'] = $danger;
+		}
+
+		if(isset($this->request->params['named']['name']))
+		{
+			$name = $this->request->params['named']['name'];
+
+			$this->paginate['conditions']['AND']['Animal.name LIKE'] = '%'.$name.'%';
+		}
+
+		$this->paginate['limit'] = Configure::read("Reading.Animals");
+		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
+
+		$animals = $this->paginate('Animal');
+
+		$this->set(compact('animals'));
 	}
 }

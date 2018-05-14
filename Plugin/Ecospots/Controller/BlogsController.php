@@ -10,7 +10,7 @@ App::uses('AppController', 'Controller');
  * @category Controller
  * @package  Croogo
  * @version  1.0
- * @author   Fahad Ibnay Heylaal <Blog@fahad19.com>
+ * @author   Ayman Hamdoun and Yasmine Hamdar
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
@@ -49,7 +49,7 @@ class BlogsController extends AppController {
 		),
 	);
 
-	public $paginate = ['limit'=>1];
+	public $paginate = ['limit'=>5];
 
 /**
  * Admin index
@@ -63,7 +63,7 @@ class BlogsController extends AppController {
 		$this->paginate['limit'] = 10;
 		$blogs = $this->paginate();
 
-		$this->set(compact('blogs'));
+		$this->set(compact('blogs')); //variabe blogs want to send it to view
 
 		$this->set('displayFields', $this->Blog->displayFields());
 		$this->set('isSortable', $this->isSortable);
@@ -85,7 +85,7 @@ class BlogsController extends AppController {
 			$this->request->data['Blog']['slug'] = Inflector::slug(strtolower($this->request->data['Blog']['name']),"-");
 			$this->request->data['Blog']['user_id'] = $this->Session->read('Auth.User.id');
 			if ($this->Blog->save($this->request->data)) {
-				$this->Session->setFlash(__('The Team Blog has been saved'), 'default', array('class' => 'success'));
+				$this->Session->setFlash(__('The Blog has been saved'), 'default', array('class' => 'success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The Blog could not be saved. Please, try again.'), 'default', array('class' => 'error'));
@@ -95,6 +95,7 @@ class BlogsController extends AppController {
 		$editFieldsNew['Topic']['options'] = $this->Topic->find('list',['fields'=>['id','name']]);
 		$editFieldsNew['Topic']['multiple'] = true;
 		$editFieldsNew['Topic']['empty'] = true;
+		$editFieldsNew['Topic']['class'] = 'multi-select';
 		$this->set('editFields', $editFieldsNew);
 	}
 
@@ -125,10 +126,12 @@ class BlogsController extends AppController {
 		if (empty($this->request->data)) {
 			$this->request->data = $this->Blog->read(null, $id);
 		}
+
 		$editFieldsNew = $this->Blog->editFields();
 		$editFieldsNew['Topic']['options'] = $this->Topic->find('list',['fields'=>['id','name']]);
 		$editFieldsNew['Topic']['multiple'] = true;
 		$editFieldsNew['Topic']['empty'] = true;
+		$editFieldsNew['Topic']['class'] = 'multi-select';
 		
 		$this->set('editFields', $editFieldsNew);
 	}
@@ -196,7 +199,7 @@ class BlogsController extends AppController {
  * @return void
  * @access public
  */
-	public function index($lang = 'en') 
+	public function index($lang = 'en')   //search by topic
 	{
 		$this->set('title_for_layout', __('Blogs'));
 		if(isset($this->request->params['named']['topic']))
@@ -226,7 +229,7 @@ class BlogsController extends AppController {
 		}
 
 		$this->paginate['contain'] = ['User'];
-		$this->paginate['limit'] = 5;
+		$this->paginate['limit'] = Configure::read("Reading.Blogs");
 		$this->paginate['page'] = isset($this->request->params['named']['page']) ? $this->request->params['named']['page'] : 1;
 		$blogs = $this->paginate('Blog');
 		

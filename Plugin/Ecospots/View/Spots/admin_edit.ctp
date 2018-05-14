@@ -26,7 +26,7 @@ $this->append('tab-heading');
 	];
 	
 	echo $this->Croogo->adminTab(__d('spot',"Spot"), '#spot');
-    echo $this->Croogo->adminTab(__d('spot',$arabicTabs[$modelClass]), '#arabic');
+    //echo $this->Croogo->adminTab(__d('spot',$arabicTabs[$modelClass]), '#arabic');
 	echo $this->Croogo->adminTab(__d('spot',"Animal Life"), '#animals');
 	echo $this->Croogo->adminTab(__d('spot',"Plant Life"), '#plants');
 	echo $this->Croogo->adminTab(__d('spot',"Activities"), '#activities');
@@ -77,7 +77,9 @@ $this->append('tab-content');
 		echo $this->Form->input('Animal',[
 			'multiple' => true,
 			'options' => $animals,
-			'label' => 'Animal Life residing in this area : '
+			'label' => 'Animal Life residing in this area : ',
+			'empty' => true,
+			'class' => 'multi-select'
 		]);
 	
 	echo $this->Html->tabEnd();
@@ -87,7 +89,9 @@ $this->append('tab-content');
 		echo $this->Form->input('Plant',[
 			'multiple' => true,
 			'options' => $plants,
-			'label' => 'Plant Life present in this area : '
+			'label' => 'Plant Life present in this area : ',
+			'empty' => true,
+			'class' => 'multi-select'
 		]);
 	
 	echo $this->Html->tabEnd();
@@ -97,7 +101,9 @@ $this->append('tab-content');
 		echo $this->Form->input('Activity',[
 			'multiple' => true,
 			'options' => $activities,
-			'label' => 'Activities that can be done in this area : '
+			'label' => 'Activities that can be done in this area : ',
+			'empty' => true,
+			'class' => 'multi-select'
 		]);
 	
 	echo $this->Html->tabEnd();
